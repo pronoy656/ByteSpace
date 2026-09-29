@@ -7,11 +7,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import defaultReviews from '../../../public/data/course-reviews.json';
+import defaultLessonList from '../../../public/data/lesson-list.json';
+
+interface LessonModule {
+  title: string;
+  desc: string;
+}
 
 export function CourseDetails({ courseId }: { courseId: string }) {
   const [course, setCourse] = useState<Course | null>(null);
   const [activeTab, setActiveTab] = useState<'About' | 'Lessons' | 'Reviews'>('About');
   const [reviews, setReviews] = useState<any[]>(defaultReviews);
+  const [lessonList, setLessonList] = useState<LessonModule[]>(defaultLessonList);
 
   useEffect(() => {
     fetch('/data/courses.json')
@@ -26,6 +33,11 @@ export function CourseDetails({ courseId }: { courseId: string }) {
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.error('Failed to load course reviews', err));
+
+    fetch('/data/lesson-list.json')
+      .then((res) => res.json())
+      .then((data) => setLessonList(data))
+      .catch((err) => console.error('Failed to load lesson list', err));
   }, [courseId]);
 
   if (!course) {
@@ -176,7 +188,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
             {/* Tabs */}
             <div className="flex items-center gap-3 mb-8 relative z-50">
               {(['About', 'Lessons', 'Reviews'] as const).map((tab) => {
-                const isTabActive = activeTab === tab || (activeTab === 'Lesson' && tab === 'Lessons');
+                const isTabActive = activeTab === tab;
                 return (
                   <button
                     key={tab}
@@ -242,7 +254,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
           </div>
         )}
 
-        {(activeTab === 'Lessons' || activeTab === 'Lesson') && (
+        {activeTab === 'Lessons' && (
           <div>
             <h2 className="text-[24px] font-bold text-[#0F172A] mb-4">Explore the Modules</h2>
             <p className="text-[#475569] text-[15px] leading-relaxed mb-8">
@@ -251,32 +263,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
 
             <h2 className="text-[24px] font-bold text-[#0F172A] mb-6">Lesson List</h2>
             <div className="space-y-6 mb-10">
-              {[
-                {
-                  title: "Module 1: Introduction to Digital Assets",
-                  desc: "Lay the groundwork with lessons like 'Understanding Digital Elements' and 'Navigating Design Software Tools.' Dive into the essentials of digital asset creation."
-                },
-                {
-                  title: "Module 2: Design Principles for Impact",
-                  desc: "Master the principles that drive impactful designs with lessons such as 'Color Theory in Digital Design' and 'Typography Essentials.' Elevate your visual communication skills."
-                },
-                {
-                  title: "Module 3: User-Centric Design Strategies",
-                  desc: "Understand 'Design Thinking in Digital Creation' and delve into 'User Experience (UX) Essentials.' Craft digital assets with a focus on user-centric design."
-                },
-                {
-                  title: "Module 4: Interactive Media and Engagement",
-                  desc: "Engage your audience with lessons like 'Creating Interactive Presentations' and 'Integrating Multimedia Elements.' Master the art of creating immersive digital experiences."
-                },
-                {
-                  title: "Module 5: Project Showcase and Critique",
-                  desc: "Perfect your presentation skills with 'Effective Presentation Techniques' and embrace collaboration with 'Peer Critique and Collaboration.' Showcase your work with confidence."
-                },
-                {
-                  title: "Module 6: Optimizing Digital Assets for Various Platforms",
-                  desc: "Adapt your digital creations for 'Mobile Platforms' and optimize for 'Social Media.' Ensure widespread accessibility and engagement across diverse digital landscapes."
-                }
-              ].map((module, idx) => (
+              {lessonList.map((module, idx) => (
                 <div key={idx} className="flex gap-5">
                   <div className="w-[56px] h-[56px] shrink-0 bg-[#D4FB20] rounded-[16px] flex items-center justify-center">
                     <Monitor className="w-6 h-6 text-black" />
