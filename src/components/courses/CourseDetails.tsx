@@ -6,10 +6,12 @@ import { Share2, Play, FileText, Monitor, Award, MessageCircle, Star, Users, Bar
 import Image from 'next/image';
 import Link from 'next/link';
 
+import defaultReviews from '../../../public/data/course-reviews.json';
+
 export function CourseDetails({ courseId }: { courseId: string }) {
   const [course, setCourse] = useState<Course | null>(null);
-  const [activeTab, setActiveTab] = useState('About');
-  const [reviews, setReviews] = useState<any[]>([]);
+  const [activeTab, setActiveTab] = useState<'About' | 'Lessons' | 'Reviews'>('About');
+  const [reviews, setReviews] = useState<any[]>(defaultReviews);
 
   useEffect(() => {
     fetch('/data/courses.json')
@@ -72,9 +74,9 @@ export function CourseDetails({ courseId }: { courseId: string }) {
           </div>
 
           {/* Row: Video & Right Sidebar Card */}
-          <div className="flex flex-col lg:flex-row gap-[63px] items-start relative flex-1 min-h-0">
+          <div className="flex flex-col lg:flex-row gap-[63px] items-start relative flex-1 min-h-0 pointer-events-none">
             {/* Left Column: Video */}
-            <div className="flex-1 w-full lg:w-[calc(100%-423px)]">
+            <div className="flex-1 w-full lg:w-[calc(100%-423px)] pointer-events-auto">
               <div className="relative aspect-[16/9] max-h-[calc(100vh-410px)] rounded-[24px] overflow-hidden bg-black shadow-2xl group cursor-pointer">
                 <Image
                   src={course.image}
@@ -93,7 +95,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
             </div>
 
             {/* Right Column: Course Card Sidebar (Overlaps Hero and White Area with #CED0D3 border) */}
-            <div className="w-full lg:w-[360px] shrink-0 bg-white rounded-[24px] p-6 sm:p-7 shadow-[0_20px_45px_rgba(0,0,0,0.08)] border border-[#CED0D3] relative z-30">
+            <div className="w-full lg:w-[360px] shrink-0 bg-white rounded-[24px] p-6 sm:p-7 shadow-[0_20px_45px_rgba(0,0,0,0.08)] border border-[#CED0D3] relative z-40 pointer-events-auto">
               <h3 className="text-[20px] font-bold text-[#0F172A] mb-5 tracking-tight">112 Lessons (24 hours)</h3>
               
               <div className="space-y-3.5 mb-3">
@@ -167,19 +169,20 @@ export function CourseDetails({ courseId }: { courseId: string }) {
       </BlueGridBackground>
 
       {/* Main Content (Tabs and Details) in White Area */}
-      <div className="container mx-auto px-12 pt-12 relative z-10">
+      <div className="container mx-auto px-12 pt-12 relative z-30">
         <div className="flex flex-col lg:flex-row gap-[63px] items-start">
           {/* Left Column (Tabs Content) */}
           <div className="flex-1 w-full lg:w-[calc(100%-423px)]">
             {/* Tabs */}
-            <div className="flex items-center gap-3 mb-8">
-              {['About', 'Lessons', 'Reviews'].map((tab) => {
+            <div className="flex items-center gap-3 mb-8 relative z-50">
+              {(['About', 'Lessons', 'Reviews'] as const).map((tab) => {
                 const isTabActive = activeTab === tab || (activeTab === 'Lesson' && tab === 'Lessons');
                 return (
                   <button
                     key={tab}
-                    onClick={() => setActiveTab(tab === 'Lessons' ? 'Lesson' : tab)}
-                    className={`px-6 py-2 rounded-full text-[14px] font-medium transition-all ${
+                    type="button"
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-6 py-2 rounded-full text-[14px] font-medium transition-all cursor-pointer ${
                       isTabActive
                         ? 'bg-[#D4FB20] text-black shadow-sm font-semibold'
                         : 'bg-[#F1F5F9] text-[#475569] hover:bg-gray-200 hover:text-black'
@@ -239,7 +242,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
           </div>
         )}
 
-        {activeTab === 'Lesson' && (
+        {(activeTab === 'Lessons' || activeTab === 'Lesson') && (
           <div>
             <h2 className="text-[24px] font-bold text-[#0F172A] mb-4">Explore the Modules</h2>
             <p className="text-[#475569] text-[15px] leading-relaxed mb-8">
