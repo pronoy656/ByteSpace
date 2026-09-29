@@ -4,10 +4,10 @@ export default function Footer() {
   return (
     <footer className="bg-white text-gray-800 w-full pt-16 pb-8">
       <div className="container mx-auto px-12 w-full">
-        {/* Top Section */}
+
         <div className="flex flex-col md:flex-row justify-between mb-24 gap-12">
 
-          {/* Left Column - Newsletter */}
+
           <div className="flex-1 max-w-[420px]">
             {/* Logo */}
             <div className="flex items-center gap-2 mb-6">
