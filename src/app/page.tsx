@@ -1,5 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import BrandSection from "@/components/home/BrandSection";
+import { CategorySection } from "@/components/home/CategorySection";
 import { CourseSection } from "@/components/home/CourseSection";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <HeroSection />
       <BrandSection />
       <CourseSection />
+      <CategorySection />
     </div>
   );
 }
