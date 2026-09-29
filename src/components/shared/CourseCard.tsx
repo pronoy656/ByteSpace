@@ -21,9 +21,11 @@ interface CourseCardProps {
   course: Course;
 }
 
+import Link from 'next/link';
+
 export function CourseCard({ course }: CourseCardProps) {
   return (
-    <div className="border border-[#E2E8F0] rounded-[24px] overflow-hidden hover:shadow-lg transition-shadow bg-white flex flex-col p-4">
+    <Link href={`/courses/${course.id}`} className="border border-[#E2E8F0] rounded-[24px] overflow-hidden hover:shadow-lg transition-shadow bg-white flex flex-col p-4">
       
       {/* Thumbnail */}
       <div className="relative rounded-[12px] overflow-hidden mb-4 aspect-[4/2.6]">
@@ -86,6 +88,6 @@ export function CourseCard({ course }: CourseCardProps) {
           <span className="text-[12px] text-[#4F4F4F] font-normal">/{course.priceType}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
