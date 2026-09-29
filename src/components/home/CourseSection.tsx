@@ -143,10 +143,3 @@ export function CourseSection() {
     </section>
   );
 }
-
-
-
-
-
-
-
