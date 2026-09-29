@@ -1,21 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BlueGridBackground } from "@/components/shared/BlueGridBackground";
 
 export default function HeroSection() {
   return (
-    <section className="h-screen bg-[#003BE2] relative overflow-hidden flex flex-col shrink-0">
-      {/* Grid Background */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.15) 2px, transparent 2px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 2px, transparent 2px)
-          `,
-          backgroundSize: '150px 150px',
-          backgroundPosition: 'center top'
-        }}
-      />
+    <BlueGridBackground className="h-screen flex flex-col shrink-0">
 
       {/* Floating 3D Elements */}
       {/* Top Left Lime Squiggly */}
@@ -69,6 +58,6 @@ export default function HeroSection() {
       <div className="relative z-20 flex justify-center mt-auto px-4 pointer-events-none">
         <img src="/Image (1).png" alt="Student" className="w-[1000px] max-w-full object-cover object-top" />
       </div>
-    </section>
+    </BlueGridBackground>
   );
 }
