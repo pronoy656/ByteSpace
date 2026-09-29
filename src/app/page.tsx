@@ -3,6 +3,7 @@ import BrandSection from "@/components/home/BrandSection";
 import { CategorySection } from "@/components/home/CategorySection";
 import { FeatureSection } from "@/components/home/FeatureSection";
 import { CourseSection } from "@/components/home/CourseSection";
+import { CtaSection } from "@/components/home/CtaSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <CourseSection />
       <CategorySection />
       <FeatureSection />
+      <CtaSection />
     </div>
   );
 }
