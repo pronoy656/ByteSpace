@@ -32,16 +32,16 @@ export function CourseDetails({ courseId }: { courseId: string }) {
 
   return (
     <div className="min-h-screen bg-white font-sans pb-20">
-      {/* Hero */}
-      <BlueGridBackground className="w-full pt-[130px] pb-[80px]">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+      {/* Hero Section */}
+      <BlueGridBackground className="w-full h-screen flex flex-col justify-between pt-[100px] pb-6 relative z-20 overflow-visible">
+        <div className="container mx-auto px-12 w-full h-full flex flex-col justify-between">
           {/* Hero Header */}
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
-            <div className="max-w-[800px]">
-              <h1 className="text-white text-[38px] md:text-[46px] font-bold leading-[1.15] mb-3 tracking-tight">
+          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-4 shrink-0">
+            <div className="max-w-[760px]">
+              <h1 className="text-white text-[32px] md:text-[40px] font-bold leading-[1.15] mb-2 tracking-tight">
                 {course.title}: A Comprehensive Guide
               </h1>
-              <p className="text-white/90 text-[16px] md:text-[18px] mb-6 font-normal">
+              <p className="text-white/90 text-[15px] md:text-[17px] mb-4 font-normal">
                 Unlock the Power of Digital Creation with Expert Guidance
               </p>
               
@@ -51,13 +51,13 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                 </span>
                 
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="flex items-center gap-2 bg-white text-[#0F172A] px-4 py-2 rounded-full font-medium text-[13px] shadow-sm">
+                  <div className="flex items-center gap-2 bg-white text-[#0F172A] px-4 py-1.5 rounded-full font-medium text-[13px] shadow-sm">
                     <BarChart className="w-4 h-4 text-[#003BE2]" /> Intermediate
                   </div>
-                  <div className="flex items-center gap-2 bg-white text-[#0F172A] px-4 py-2 rounded-full font-medium text-[13px] shadow-sm">
+                  <div className="flex items-center gap-2 bg-white text-[#0F172A] px-4 py-1.5 rounded-full font-medium text-[13px] shadow-sm">
                     <Star className="w-4 h-4 fill-[#003BE2] text-[#003BE2]" /> 4.8 (172 reviews)
                   </div>
-                  <div className="flex items-center gap-2 bg-white text-[#0F172A] px-4 py-2 rounded-full font-medium text-[13px] shadow-sm">
+                  <div className="flex items-center gap-2 bg-white text-[#0F172A] px-4 py-1.5 rounded-full font-medium text-[13px] shadow-sm">
                     <Users className="w-4 h-4 text-[#003BE2]" /> 199 Students
                   </div>
                 </div>
@@ -71,11 +71,11 @@ export function CourseDetails({ courseId }: { courseId: string }) {
             </div>
           </div>
 
-          {/* Video Preview and Floating Sidebar Container */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
-            {/* Left - Video Container */}
-            <div className="lg:col-span-8">
-              <div className="relative aspect-[16/10] sm:aspect-[16/9] rounded-[28px] overflow-hidden bg-white shadow-2xl group cursor-pointer border-4 border-white/90">
+          {/* Row: Video & Right Sidebar Card */}
+          <div className="flex flex-col lg:flex-row gap-[63px] items-start relative flex-1 min-h-0">
+            {/* Left Column: Video */}
+            <div className="flex-1 w-full lg:w-[calc(100%-423px)]">
+              <div className="relative aspect-[16/9] max-h-[calc(100vh-270px)] rounded-[24px] overflow-hidden bg-black shadow-2xl group cursor-pointer border-4 border-white">
                 <Image
                   src={course.image}
                   alt={course.title}
@@ -92,8 +92,8 @@ export function CourseDetails({ courseId }: { courseId: string }) {
               </div>
             </div>
 
-            {/* Right - Course Card Sidebar */}
-            <div className="lg:col-span-4 bg-white rounded-[28px] p-6 sm:p-7 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#E8ECF2] relative z-20">
+            {/* Right Column: Course Card Sidebar (Overlaps Hero and White Area with #CED0D3 border) */}
+            <div className="w-full lg:w-[360px] shrink-0 bg-white rounded-[24px] p-6 sm:p-7 shadow-[0_20px_45px_rgba(0,0,0,0.08)] border border-[#CED0D3] relative z-30">
               <h3 className="text-[20px] font-bold text-[#0F172A] mb-5 tracking-tight">112 Lessons (24 hours)</h3>
               
               <div className="space-y-3.5 mb-3">
@@ -144,7 +144,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                 </ul>
               </div>
 
-              <hr className="border-[#E8ECF2] mb-6" />
+              <hr className="border-[#CED0D3] mb-6" />
 
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -157,7 +157,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                 <p className="text-[#64748B] text-[13px] leading-relaxed mb-4">
                   Ready to Dive In? Enroll Now and Start Building Your Digital Future!
                 </p>
-                <Link href="/creators" className="inline-block border border-[#E2E8F0] text-[#0F172A] font-semibold px-5 py-2 rounded-full text-[13px] hover:bg-gray-50 transition-colors">
+                <Link href="/creators" className="inline-block border border-[#CED0D3] text-[#0F172A] font-semibold px-5 py-2 rounded-full text-[13px] hover:bg-gray-50 transition-colors">
                   See Full Profile
                 </Link>
               </div>
@@ -166,30 +166,30 @@ export function CourseDetails({ courseId }: { courseId: string }) {
         </div>
       </BlueGridBackground>
 
-      {/* Main Content (Tabs and Details) */}
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 mt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-8">
-        
-        {/* Tabs */}
-        <div className="flex items-center gap-3 mb-8">
-          {['About', 'Lessons', 'Reviews'].map((tab) => {
-            const isTabActive = activeTab === tab || (activeTab === 'Lesson' && tab === 'Lessons');
-            return (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab === 'Lessons' ? 'Lesson' : tab)}
-                className={`px-6 py-2 rounded-full text-[14px] font-medium transition-all ${
-                  isTabActive
-                    ? 'bg-[#D4FB20] text-black shadow-sm font-semibold'
-                    : 'bg-[#F1F5F9] text-[#475569] hover:bg-gray-200 hover:text-black'
-                }`}
-              >
-                {tab}
-              </button>
-            );
-          })}
-        </div>
+      {/* Main Content (Tabs and Details) in White Area */}
+      <div className="container mx-auto px-12 pt-12 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-[63px] items-start">
+          {/* Left Column (Tabs Content) */}
+          <div className="flex-1 w-full lg:w-[calc(100%-423px)]">
+            {/* Tabs */}
+            <div className="flex items-center gap-3 mb-8">
+              {['About', 'Lessons', 'Reviews'].map((tab) => {
+                const isTabActive = activeTab === tab || (activeTab === 'Lesson' && tab === 'Lessons');
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab === 'Lessons' ? 'Lesson' : tab)}
+                    className={`px-6 py-2 rounded-full text-[14px] font-medium transition-all ${
+                      isTabActive
+                        ? 'bg-[#D4FB20] text-black shadow-sm font-semibold'
+                        : 'bg-[#F1F5F9] text-[#475569] hover:bg-gray-200 hover:text-black'
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                );
+              })}
+            </div>
 
         {activeTab === 'About' && (
           <div>
@@ -379,6 +379,9 @@ export function CourseDetails({ courseId }: { courseId: string }) {
           </div>
         )}
           </div>
+
+          {/* Right Column Spacer (Leaves space for the overlapping card) */}
+          <div className="hidden lg:block w-[360px] shrink-0" aria-hidden="true" />
         </div>
       </div>
     </div>
