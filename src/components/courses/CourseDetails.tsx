@@ -4,6 +4,7 @@ import { BlueGridBackground } from '@/components/shared/BlueGridBackground';
 import { Course } from '@/components/shared/CourseCard';
 import { Share2, Play, FileText, Monitor, Award, MessageCircle, Star, Users, BarChart } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function CourseDetails({ courseId }: { courseId: string }) {
   const [course, setCourse] = useState<Course | null>(null);
@@ -156,9 +157,9 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                 <p className="text-[#64748B] text-[13px] leading-relaxed mb-4">
                   Ready to Dive In? Enroll Now and Start Building Your Digital Future!
                 </p>
-                <button className="border border-[#E2E8F0] text-[#0F172A] font-semibold px-5 py-2 rounded-full text-[13px] hover:bg-gray-50 transition-colors">
+                <Link href="/creators" className="inline-block border border-[#E2E8F0] text-[#0F172A] font-semibold px-5 py-2 rounded-full text-[13px] hover:bg-gray-50 transition-colors">
                   See Full Profile
-                </button>
+                </Link>
               </div>
             </div>
           </div>
