@@ -33,10 +33,10 @@ export function CourseDetails({ courseId }: { courseId: string }) {
   return (
     <div className="min-h-screen bg-white font-sans pb-20">
       {/* Hero Section */}
-      <BlueGridBackground className="w-full h-screen flex flex-col justify-start pt-[100px] pb-6 relative z-20 overflow-visible">
+      <BlueGridBackground className="w-full h-screen flex flex-col justify-start pt-[96px] pb-6 relative z-20 overflow-visible">
         <div className="container mx-auto px-12 w-full flex flex-col">
           {/* Hero Header */}
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-[60px] shrink-0">
+          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mt-[52px] mb-[60px] shrink-0">
             <div className="max-w-[760px]">
               <h1 className="text-white text-[32px] md:text-[40px] font-bold leading-[1.15] mb-2 tracking-tight">
                 {course.title}: A Comprehensive Guide
@@ -75,7 +75,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
           <div className="flex flex-col lg:flex-row gap-[63px] items-start relative flex-1 min-h-0">
             {/* Left Column: Video */}
             <div className="flex-1 w-full lg:w-[calc(100%-423px)]">
-              <div className="relative aspect-[16/9] max-h-[calc(100vh-320px)] rounded-[24px] overflow-hidden bg-black shadow-2xl group cursor-pointer border-4 border-white">
+              <div className="relative aspect-[16/9] max-h-[calc(100vh-370px)] rounded-[24px] overflow-hidden bg-black shadow-2xl group cursor-pointer border-4 border-white">
                 <Image
                   src={course.image}
                   alt={course.title}
