@@ -32,122 +32,131 @@ export function CourseDetails({ courseId }: { courseId: string }) {
   return (
     <div className="min-h-screen bg-white font-sans pb-20">
       {/* Hero */}
-      <BlueGridBackground className="w-full pt-[136px] pb-[100px] flex flex-col">
-        <div className="container mx-auto px-12 relative w-full">
-          {/* Top Info */}
-          <div className="flex justify-between items-start mb-10 w-[60%]">
-            <div>
-              <h1 className="text-white text-[44px] font-bold leading-tight mb-3">
+      <BlueGridBackground className="w-full pt-[130px] pb-[80px]">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+          {/* Hero Header */}
+          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
+            <div className="max-w-[800px]">
+              <h1 className="text-white text-[38px] md:text-[46px] font-bold leading-[1.15] mb-3 tracking-tight">
                 {course.title}: A Comprehensive Guide
               </h1>
-              <p className="text-white text-[18px] mb-6">
+              <p className="text-white/90 text-[16px] md:text-[18px] mb-6 font-normal">
                 Unlock the Power of Digital Creation with Expert Guidance
               </p>
               
-              <div className="flex items-center gap-4 text-white text-[14px]">
-                <span>by <span className="text-[#D4FB20] font-medium">{course.author}</span></span>
+              <div className="flex flex-wrap items-center gap-4 text-white text-[14px]">
+                <span className="font-normal text-white/90">
+                  by <span className="text-[#D4FB20] font-semibold">{course.author}</span>
+                </span>
                 
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1.5 bg-white text-[#0F172A] px-4 py-1.5 rounded-full font-medium">
-                    <BarChart className="w-4 h-4 text-[#003BE2]" /> {course.level}
+                <div className="flex flex-wrap items-center gap-3">
+                  <div className="flex items-center gap-2 bg-white text-[#0F172A] px-4 py-2 rounded-full font-medium text-[13px] shadow-sm">
+                    <BarChart className="w-4 h-4 text-[#003BE2]" /> Intermediate
                   </div>
-                  <div className="flex items-center gap-1.5 bg-white text-[#0F172A] px-4 py-1.5 rounded-full font-medium">
+                  <div className="flex items-center gap-2 bg-white text-[#0F172A] px-4 py-2 rounded-full font-medium text-[13px] shadow-sm">
                     <Star className="w-4 h-4 fill-[#003BE2] text-[#003BE2]" /> 4.8 (172 reviews)
                   </div>
-                  <div className="flex items-center gap-1.5 bg-white text-[#0F172A] px-4 py-1.5 rounded-full font-medium">
+                  <div className="flex items-center gap-2 bg-white text-[#0F172A] px-4 py-2 rounded-full font-medium text-[13px] shadow-sm">
                     <Users className="w-4 h-4 text-[#003BE2]" /> 199 Students
                   </div>
                 </div>
               </div>
             </div>
 
-            <button className="flex items-center gap-2 bg-[#D4FB20] text-black font-semibold px-6 py-2.5 rounded-full hover:bg-[#c2e61c] transition-colors absolute right-12 top-0">
-              <Share2 className="w-4 h-4" /> Share
-            </button>
+            <div className="shrink-0 pt-2">
+              <button className="flex items-center gap-2 bg-[#D4FB20] text-black font-semibold px-6 py-2.5 rounded-full hover:bg-[#c2e61c] transition-transform active:scale-95 shadow-sm text-[15px]">
+                <Share2 className="w-4 h-4 stroke-[2.5]" /> Share
+              </button>
+            </div>
           </div>
 
-          <div className="flex gap-8 items-start relative">
-            {/* Left Content - Video */}
-            <div className="w-[60%] shrink-0">
-              <div className="relative aspect-video rounded-[24px] overflow-hidden bg-black shadow-2xl group cursor-pointer border-4 border-white">
+          {/* Video Preview and Floating Sidebar Container */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
+            {/* Left - Video Container */}
+            <div className="lg:col-span-8">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] rounded-[28px] overflow-hidden bg-white shadow-2xl group cursor-pointer border-4 border-white/90">
                 <Image
                   src={course.image}
                   alt={course.title}
                   fill
-                  className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                  className="object-cover"
+                  priority
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center pl-1 group-hover:bg-white/40 transition-colors">
+                {/* Frosted Play button overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/20 transition-all">
+                  <div className="w-[76px] h-[76px] bg-white/40 backdrop-blur-md rounded-[22px] flex items-center justify-center pl-1 shadow-lg group-hover:scale-105 transition-transform border border-white/50">
                     <Play className="w-8 h-8 text-white fill-white" />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Sidebar - Overlaps Hero and White BG */}
-            <div className="w-[40%] bg-white rounded-[24px] p-8 shadow-xl relative top-[-60px] border border-[#E2E8F0]">
-              <h3 className="text-[20px] font-bold text-[#0F172A] mb-6">112 Lessons (24 hours)</h3>
+            {/* Right - Course Card Sidebar */}
+            <div className="lg:col-span-4 bg-white rounded-[28px] p-6 sm:p-7 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#E8ECF2] relative z-20">
+              <h3 className="text-[20px] font-bold text-[#0F172A] mb-5 tracking-tight">112 Lessons (24 hours)</h3>
               
-              <div className="space-y-4 mb-4">
+              <div className="space-y-3.5 mb-3">
                 {[
                   { num: '01', title: 'Introduction to Digital Assets', time: '12 mins' },
                   { num: '02', title: 'Design Principles for Impacts', time: '21 mins' },
                   { num: '03', title: 'Advanced Techniques in Digital Creation', time: '16 mins' }
                 ].map((lesson, idx) => (
-                  <div key={idx} className="flex items-center justify-between">
-                    <div className="flex gap-3 text-[14px]">
-                      <span className="text-[#64748B]">{lesson.num}</span>
-                      <span className="text-[#0F172A] font-medium">{lesson.title}</span>
+                  <div key={idx} className="flex items-center justify-between text-[13px]">
+                    <div className="flex items-center gap-3">
+                      <span className="text-[#64748B] font-medium">{lesson.num}</span>
+                      <span className="text-[#0F172A] font-semibold">{lesson.title}</span>
                     </div>
-                    <span className="text-[#003BE2] text-[13px]">{lesson.time}</span>
+                    <span className="text-[#003BE2] font-semibold shrink-0">{lesson.time}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-[#64748B] text-[13px] mb-8 cursor-pointer hover:text-[#003BE2]">99 more videos</p>
+              <p className="text-[#64748B] text-[13px] mb-6 cursor-pointer hover:text-[#003BE2] font-medium transition-colors">99 more videos</p>
 
               <div className="mb-6">
-                <p className="text-[#475569] text-[14px] mb-4">Ready to Dive in? Enroll Now and Start Building Your Digital Future!</p>
+                <p className="text-[#64748B] text-[13px] leading-relaxed mb-4">
+                  Ready to Dive In? Enroll Now and Start Building Your Digital Future!
+                </p>
                 <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-[#003BE2] font-bold text-[32px]">${course.price}</span>
-                  <span className="text-[#475569] text-[14px]">/{course.priceType}</span>
+                  <span className="text-[#003BE2] font-extrabold text-[36px] leading-none">${course.price}</span>
+                  <span className="text-[#64748B] text-[13px] font-normal">/{course.priceType}</span>
                 </div>
-                <button className="w-full bg-[#D4FB20] text-black font-semibold py-4 rounded-full text-[16px] hover:bg-[#c2e61c] transition-colors">
+                <button className="w-full bg-[#D4FB20] text-black font-bold py-3.5 rounded-full text-[15px] hover:bg-[#c2e61c] transition-colors shadow-sm">
                   Enroll Now
                 </button>
               </div>
 
-              <hr className="border-[#E2E8F0] mb-6" />
-
-              <div className="mb-6">
-                <h4 className="font-bold text-[#0F172A] text-[16px] mb-4">This course include</h4>
+              <div className="pt-2 mb-6">
+                <h4 className="font-bold text-[#0F172A] text-[15px] mb-4">This course include</h4>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-3 text-[#475569] text-[14px]">
-                    <FileText className="w-5 h-5 text-[#003BE2]" /> Learning Resources
+                  <li className="flex items-center gap-3 text-[#475569] text-[13px] font-medium">
+                    <FileText className="w-4 h-4 text-[#003BE2]" /> Learning Resources
                   </li>
-                  <li className="flex items-center gap-3 text-[#475569] text-[14px]">
-                    <Monitor className="w-5 h-5 text-[#003BE2]" /> Quality Lesson Videos
+                  <li className="flex items-center gap-3 text-[#475569] text-[13px] font-medium">
+                    <Monitor className="w-4 h-4 text-[#003BE2]" /> Quality Lesson Videos
                   </li>
-                  <li className="flex items-center gap-3 text-[#475569] text-[14px]">
-                    <Award className="w-5 h-5 text-[#003BE2]" /> Certificate of Completion
+                  <li className="flex items-center gap-3 text-[#475569] text-[13px] font-medium">
+                    <Award className="w-4 h-4 text-[#003BE2]" /> Certificate of Completion
                   </li>
-                  <li className="flex items-center gap-3 text-[#475569] text-[14px]">
-                    <MessageCircle className="w-5 h-5 text-[#003BE2]" /> Private Consultation
+                  <li className="flex items-center gap-3 text-[#475569] text-[13px] font-medium">
+                    <MessageCircle className="w-4 h-4 text-[#003BE2]" /> Private Consultation
                   </li>
                 </ul>
               </div>
 
-              <hr className="border-[#E2E8F0] mb-6" />
+              <hr className="border-[#E8ECF2] mb-6" />
 
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <Image src="https://i.pravatar.cc/150?img=11" alt="Instructor" width={48} height={48} className="rounded-full bg-gray-200" />
+                  <Image src="https://i.pravatar.cc/150?img=11" alt="Instructor" width={46} height={46} className="rounded-full bg-gray-200 object-cover" />
                   <div>
-                    <h5 className="font-bold text-[#0F172A] text-[15px]">{course.author}</h5>
-                    <p className="text-[#64748B] text-[13px]">Professional Creator</p>
+                    <h5 className="font-bold text-[#0F172A] text-[15px] leading-snug">PurePearl Studio</h5>
+                    <p className="text-[#64748B] text-[12px]">Professional Creator</p>
                   </div>
                 </div>
-                <p className="text-[#475569] text-[14px] mb-4">Ready to Dive in? Enroll Now and Start Building Your Digital Future!</p>
-                <button className="border border-[#E2E8F0] text-[#0F172A] font-medium px-6 py-2 rounded-full text-[14px] hover:bg-gray-50 transition-colors">
+                <p className="text-[#64748B] text-[13px] leading-relaxed mb-4">
+                  Ready to Dive In? Enroll Now and Start Building Your Digital Future!
+                </p>
+                <button className="border border-[#E2E8F0] text-[#0F172A] font-semibold px-5 py-2 rounded-full text-[13px] hover:bg-gray-50 transition-colors">
                   See Full Profile
                 </button>
               </div>
@@ -157,21 +166,28 @@ export function CourseDetails({ courseId }: { courseId: string }) {
       </BlueGridBackground>
 
       {/* Main Content (Tabs and Details) */}
-      <div className="container mx-auto px-12 -mt-[30px] relative z-10 w-[60%]">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="lg:col-span-8">
         
         {/* Tabs */}
-        <div className="flex gap-2 mb-10">
-          {['About', 'Lesson', 'Reviews'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2.5 rounded-full text-[15px] font-medium transition-colors ${
-                activeTab === tab ? 'bg-[#D4FB20] text-black' : 'bg-[#F8FAFC] text-[#475569] hover:bg-gray-100'
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
+        <div className="flex items-center gap-3 mb-8">
+          {['About', 'Lessons', 'Reviews'].map((tab) => {
+            const isTabActive = activeTab === tab || (activeTab === 'Lesson' && tab === 'Lessons');
+            return (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab === 'Lessons' ? 'Lesson' : tab)}
+                className={`px-6 py-2 rounded-full text-[14px] font-medium transition-all ${
+                  isTabActive
+                    ? 'bg-[#D4FB20] text-black shadow-sm font-semibold'
+                    : 'bg-[#F1F5F9] text-[#475569] hover:bg-gray-200 hover:text-black'
+                }`}
+              >
+                {tab}
+              </button>
+            );
+          })}
         </div>
 
         {activeTab === 'About' && (
@@ -361,6 +377,8 @@ export function CourseDetails({ courseId }: { courseId: string }) {
             </div>
           </div>
         )}
+          </div>
+        </div>
       </div>
     </div>
   );
