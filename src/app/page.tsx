@@ -3,6 +3,7 @@ import BrandSection from "@/components/home/BrandSection";
 import { CategorySection } from "@/components/home/CategorySection";
 import { FeatureSection } from "@/components/home/FeatureSection";
 import { CourseSection } from "@/components/home/CourseSection";
+import { TestimonialSection } from "@/components/home/TestimonialSection";
 import { CtaSection } from "@/components/home/CtaSection";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <CategorySection />
       <FeatureSection />
       <CtaSection />
+      <TestimonialSection />
     </div>
   );
 }
