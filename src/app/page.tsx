@@ -1,6 +1,7 @@
 import HeroSection from "@/components/home/HeroSection";
 import BrandSection from "@/components/home/BrandSection";
 import { CategorySection } from "@/components/home/CategorySection";
+import { FeatureSection } from "@/components/home/FeatureSection";
 import { CourseSection } from "@/components/home/CourseSection";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <BrandSection />
       <CourseSection />
       <CategorySection />
+      <FeatureSection />
     </div>
   );
 }
