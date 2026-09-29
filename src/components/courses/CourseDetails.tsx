@@ -37,8 +37,8 @@ export function CourseDetails({ courseId }: { courseId: string }) {
         <div className="container mx-auto px-12 w-full flex flex-col">
           {/* Hero Header */}
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mt-[52px] mb-[60px] shrink-0">
-            <div className="max-w-[760px]">
-              <h1 className="text-white text-[32px] md:text-[40px] font-bold leading-[1.15] mb-2 tracking-tight">
+            <div>
+              <h1 className="text-white text-[28px] sm:text-[34px] lg:text-[38px] xl:text-[40px] font-bold leading-[1.15] mb-2 tracking-tight whitespace-nowrap">
                 {course.title}: A Comprehensive Guide
               </h1>
               <p className="text-white/90 text-[15px] md:text-[17px] mb-4 font-normal">
