@@ -3,9 +3,14 @@ import Link from 'next/link';
 export default function Navbar() {
   return (
     <nav className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-12 py-8 container mx-auto w-full">
-      <div className="flex items-center gap-2">
-        <img src="/Vector.png" alt="ByteSpace Logo" className="h-8" />
-        <span className="text-white font-bold text-2xl tracking-wide">ByteSpace</span>
+      <div className="flex items-center gap-2.5">
+        <img src="/Vector.png" alt="ByteSpace Logo" className="h-[28px] w-auto block object-contain" />
+        <span
+          className="text-[#F5F5F6] text-[24px] font-bold leading-none inline-flex items-center"
+          style={{ fontFamily: '"Clash Display", sans-serif' }}
+        >
+          ByteSpace
+        </span>
       </div>
       <div className="flex items-center gap-10 text-[15px]">
         <Link href="/" className="text-white font-medium">Home</Link>
