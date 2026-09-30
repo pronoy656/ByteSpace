@@ -36,7 +36,7 @@ export function CourseCard({ course }: CourseCardProps) {
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-medium text-[#334155]">
+        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-medium text-[#334155]" style={{ fontFamily: 'Satoshi, sans-serif' }}>
           <span className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full">{course.lessons} Lessons</span>
           <span className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full">{course.duration}</span>
           <span className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full">{course.comments} Comments</span>
@@ -45,19 +45,33 @@ export function CourseCard({ course }: CourseCardProps) {
 
       <div className="flex-1 flex flex-col px-1">
         <div className="flex justify-between items-start mb-1">
-          <h3 className="font-semibold text-[20px] text-[#0F172A] leading-tight line-clamp-1">{course.title}</h3>
-          <div className="flex items-center gap-1 text-[18px] font-normal text-[#4F4F4F] shrink-0 ml-2">
+          <h3
+            className="font-semibold text-[20px] text-[#0F172A] leading-tight line-clamp-1"
+            style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
+          >
+            {course.title}
+          </h3>
+          <div
+            className="flex items-center gap-1 text-[18px] font-normal text-[#4F4F4F] shrink-0 ml-2"
+            style={{ fontFamily: 'Satoshi, sans-serif' }}
+          >
             {course.rating} <Star className="w-[15.88px] h-[15.76px] fill-[#CED0D3] text-[#CED0D3]" />
           </div>
         </div>
 
-        <p className="text-[12px] font-normal mb-5">
+        <p
+          className="text-[12px] font-normal mb-5"
+          style={{ fontFamily: 'Satoshi, sans-serif' }}
+        >
           <span className="text-[#4F4F4F]">by </span>
           <span className="text-[#003BE2]">{course.author}</span>
         </p>
 
         <div className="flex items-center gap-[12px] mt-auto">
-          <div className="flex items-center gap-1.5 text-[12px] font-medium text-[#4B4C53] bg-[#F5F5F6] px-[12px] py-[9px] rounded-[24px]">
+          <div
+            className="flex items-center gap-1.5 text-[12px] font-medium text-[#4B4C53] bg-[#F5F5F6] px-[12px] py-[9px] rounded-[24px]"
+            style={{ fontFamily: 'Satoshi, sans-serif' }}
+          >
             <BarChart className="w-3.5 h-3.5 text-[#4B4C53]" />
             {course.level}
           </div>
@@ -74,15 +88,28 @@ export function CourseCard({ course }: CourseCardProps) {
                 />
               ))}
             </div>
-            <div className="w-[32px] h-[32px] rounded-full border-2 border-white bg-[#D4FB20] text-black text-[12px] font-medium flex items-center justify-center -ml-2 z-10">
+            <div
+              className="w-[32px] h-[32px] rounded-full border-2 border-white bg-[#D4FB20] text-black text-[12px] font-medium flex items-center justify-center -ml-2 z-10"
+              style={{ fontFamily: 'Satoshi, sans-serif' }}
+            >
               {course.studentsCount}
             </div>
           </div>
         </div>
 
         <div className="flex items-baseline gap-1 mt-[16px]">
-          <span className="text-[#003BE2] font-semibold text-[20px]">${course.price}</span>
-          <span className="text-[12px] text-[#4F4F4F] font-normal">/{course.priceType}</span>
+          <span
+            className="text-[#003BE2] font-semibold text-[20px]"
+            style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
+          >
+            ${course.price}
+          </span>
+          <span
+            className="text-[12px] text-[#4F4F4F] font-normal"
+            style={{ fontFamily: 'Satoshi, sans-serif' }}
+          >
+            /{course.priceType}
+          </span>
         </div>
       </div>
     </Link>

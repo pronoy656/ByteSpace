@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { BlueGridBackground } from '@/components/shared/BlueGridBackground';
+import { Title } from '@/components/shared/Title';
+import { Subtitle } from '@/components/shared/Subtitle';
 import { Search } from 'lucide-react';
 
 export default function HeroSection() {
@@ -81,12 +83,12 @@ export default function HeroSection() {
 
       {/* ================= Hero Content Header ================= */}
       <div className="relative z-20 flex flex-col items-center pt-28 sm:pt-32 text-center max-w-4xl mx-auto px-4 shrink-0">
-        <h1 className="text-white text-[38px] sm:text-[50px] lg:text-[62px] xl:text-[66px] font-bold leading-[1.08] tracking-tight">
+        <Title as="h1" className="text-white text-[38px] sm:text-[50px] lg:text-[62px] xl:text-[66px] font-bold leading-[1.08] tracking-tight">
           Get Access to Hundreds<br />Courses Available
-        </h1>
-        <p className="text-white/80 mt-4 sm:mt-5 text-[15px] sm:text-[17px] font-normal leading-relaxed md:whitespace-nowrap">
+        </Title>
+        <Subtitle className="text-white/80 mt-4 sm:mt-5 text-[15px] sm:text-[17px] font-normal leading-relaxed md:whitespace-nowrap">
           Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
-        </p>
+        </Subtitle>
 
         {/* Search Bar */}
         <div className="mt-8 sm:mt-10 flex items-center gap-3 sm:gap-4 w-full max-w-[560px] sm:max-w-[620px]">

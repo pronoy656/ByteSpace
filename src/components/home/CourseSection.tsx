@@ -58,7 +58,7 @@ export function CourseSection() {
   return (
     <section className="py-20 px-12 container mx-auto w-full font-sans">
       <div className="text-center max-w-[1100px] mx-auto mb-10">
-        <Title as="h2" className="text-[44px] font-semibold leading-tight mb-4 text-[#0F172A]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+        <Title as="h2" className="text-[44px] font-semibold leading-tight mb-4 text-[#0F172A]">
           Discover Your Passion,<br />Build Your Skills
         </Title>
         <Subtitle className="text-center font-normal mx-auto leading-relaxed">

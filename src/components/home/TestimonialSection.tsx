@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Title } from '@/components/shared/Title';
+import { Subtitle } from '@/components/shared/Subtitle';
 
 interface Testimonial {
   id: number;
@@ -71,9 +72,9 @@ export function TestimonialSection() {
             </Title>
           </div>
           <div className="flex-1 pt-2">
-            <p className="text-[#64748B] text-[16px] leading-[1.8]">
+            <Subtitle className="text-[#64748B] text-[16px] leading-[1.8] font-normal">
               At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly from those who have experienced the transformative journey of learning and creating on our platform. Explore testimonials that reflect the diverse perspectives of enthusiastic learners and accomplished creators.
-            </p>
+            </Subtitle>
           </div>
         </div>
 
