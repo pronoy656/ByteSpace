@@ -11,7 +11,8 @@
     "level": "Beginner",
     "studentsCount": "26+",
     "price": 25,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "UI/UX Design"
   },
   {
     "id": 2,
@@ -25,7 +26,8 @@
     "level": "Beginner",
     "studentsCount": "26+",
     "price": 25,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Marketing"
   },
   {
     "id": 3,
@@ -39,7 +41,8 @@
     "level": "Beginner",
     "studentsCount": "26+",
     "price": 25,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Data Science"
   },
   {
     "id": 4,
@@ -53,7 +56,8 @@
     "level": "Beginner",
     "studentsCount": "26+",
     "price": 25,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Productivity"
   },
   {
     "id": 5,
@@ -67,7 +71,8 @@
     "level": "Beginner",
     "studentsCount": "26+",
     "price": 25,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Freelance & Entrepreneurship"
   },
   {
     "id": 6,
@@ -81,7 +86,8 @@
     "level": "Beginner",
     "studentsCount": "26+",
     "price": 25,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Freelance & Entrepreneurship"
   },
   {
     "id": 7,
@@ -95,7 +101,8 @@
     "level": "Intermediate",
     "studentsCount": "30+",
     "price": 30,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "UI/UX Design"
   },
   {
     "id": 8,
@@ -109,7 +116,8 @@
     "level": "Advanced",
     "studentsCount": "18+",
     "price": 35,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Animation"
   },
   {
     "id": 9,
@@ -123,7 +131,8 @@
     "level": "Beginner",
     "studentsCount": "50+",
     "price": 29,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Web Development"
   },
   {
     "id": 10,
@@ -137,7 +146,8 @@
     "level": "Beginner",
     "studentsCount": "22+",
     "price": 20,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Photography"
   },
   {
     "id": 11,
@@ -151,7 +161,8 @@
     "level": "Beginner",
     "studentsCount": "40+",
     "price": 19,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Social Media"
   },
   {
     "id": 12,
@@ -165,7 +176,8 @@
     "level": "Intermediate",
     "studentsCount": "60+",
     "price": 45,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Data Science"
   },
   {
     "id": 13,
@@ -179,7 +191,8 @@
     "level": "Intermediate",
     "studentsCount": "34+",
     "price": 32,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Graphic Design"
   },
   {
     "id": 14,
@@ -193,7 +206,8 @@
     "level": "Beginner",
     "studentsCount": "28+",
     "price": 27,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Film & Video"
   },
   {
     "id": 15,
@@ -207,7 +221,8 @@
     "level": "Beginner",
     "studentsCount": "45+",
     "price": 39,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Creative Marketing"
   },
   {
     "id": 16,
@@ -221,7 +236,8 @@
     "level": "Beginner",
     "studentsCount": "20+",
     "price": 18,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Web Development"
   },
   {
     "id": 17,
@@ -235,7 +251,8 @@
     "level": "Advanced",
     "studentsCount": "55+",
     "price": 49,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Data Science"
   },
   {
     "id": 18,
@@ -249,6 +266,187 @@
     "level": "Beginner",
     "studentsCount": "36+",
     "price": 22,
-    "priceType": "lifetime"
+    "priceType": "lifetime",
+    "category": "Digital Illustration"
+  },
+  {
+    "id": 19,
+    "image": "/4f3bdea5688b1a654db7a29b0bc5dd3563059d11 (1).jpg",
+    "lessons": 16,
+    "duration": "2 hours 20 mins",
+    "comments": 45,
+    "title": "Music Production in Ableton",
+    "rating": 4.8,
+    "author": "purepearl studio",
+    "level": "Beginner",
+    "studentsCount": "32+",
+    "price": 34,
+    "priceType": "lifetime",
+    "category": "Music"
+  },
+  {
+    "id": 20,
+    "image": "/72e18d90fb9ddac1944e3483a501f3cdae505f57.jpg",
+    "lessons": 14,
+    "duration": "2 hours 10 mins",
+    "comments": 52,
+    "title": "Watercolor & Acrylic Painting",
+    "rating": 4.7,
+    "author": "purepearl studio",
+    "level": "Beginner",
+    "studentsCount": "29+",
+    "price": 26,
+    "priceType": "lifetime",
+    "category": "Drawing & Painting"
+  },
+  {
+    "id": 21,
+    "image": "/93ad9f9e6bdb3c7f3c478820624ee19ad7320072.jpg",
+    "lessons": 15,
+    "duration": "2 hours 40 mins",
+    "comments": 48,
+    "title": "Handmade Crafts & Pottery",
+    "rating": 4.6,
+    "author": "purepearl studio",
+    "level": "Beginner",
+    "studentsCount": "24+",
+    "price": 28,
+    "priceType": "lifetime",
+    "category": "Crafts"
+  },
+  {
+    "id": 22,
+    "image": "/69362b026219ac3eb8b4e77e8bbe4e18c4464b44.jpg",
+    "lessons": 12,
+    "duration": "1 hour 40 mins",
+    "comments": 39,
+    "title": "Culinary Arts & Gourmet Cooking",
+    "rating": 4.9,
+    "author": "purepearl studio",
+    "level": "Beginner",
+    "studentsCount": "41+",
+    "price": 24,
+    "priceType": "lifetime",
+    "category": "Cooking"
+  },
+  {
+    "id": 23,
+    "image": "/a89789455304dbf5cadc8e011bc26c97145aa56c.jpg",
+    "lessons": 18,
+    "duration": "3 hours 00 mins",
+    "comments": 58,
+    "title": "Modern Interior Architecture",
+    "rating": 4.7,
+    "author": "purepearl studio",
+    "level": "Intermediate",
+    "studentsCount": "33+",
+    "price": 38,
+    "priceType": "lifetime",
+    "category": "Architecture"
+  },
+  {
+    "id": 24,
+    "image": "/c88264191d691ba3300ad4f82a942429bb912fa5.jpg",
+    "lessons": 16,
+    "duration": "2 hours 30 mins",
+    "comments": 64,
+    "title": "Creative Writing Masterclass",
+    "rating": 4.8,
+    "author": "purepearl studio",
+    "level": "Beginner",
+    "studentsCount": "37+",
+    "price": 25,
+    "priceType": "lifetime",
+    "category": "Creative Writing"
+  },
+  {
+    "id": 25,
+    "image": "/4f3bdea5688b1a654db7a29b0bc5dd3563059d11 (1).jpg",
+    "lessons": 15,
+    "duration": "2 hours 15 mins",
+    "comments": 46,
+    "title": "Healthy Living & Personal Fitness",
+    "rating": 4.6,
+    "author": "purepearl studio",
+    "level": "Beginner",
+    "studentsCount": "44+",
+    "price": 27,
+    "priceType": "lifetime",
+    "category": "Fitness & Health"
+  },
+  {
+    "id": 26,
+    "image": "/72e18d90fb9ddac1944e3483a501f3cdae505f57.jpg",
+    "lessons": 18,
+    "duration": "2 hours 45 mins",
+    "comments": 60,
+    "title": "Songwriting & Audio Mixing",
+    "rating": 4.7,
+    "author": "purepearl studio",
+    "level": "Intermediate",
+    "studentsCount": "35+",
+    "price": 30,
+    "priceType": "lifetime",
+    "category": "Music"
+  },
+  {
+    "id": 27,
+    "image": "/93ad9f9e6bdb3c7f3c478820624ee19ad7320072.jpg",
+    "lessons": 14,
+    "duration": "2 hours 10 mins",
+    "comments": 50,
+    "title": "Classical Piano Essentials",
+    "rating": 4.9,
+    "author": "purepearl studio",
+    "level": "Beginner",
+    "studentsCount": "40+",
+    "price": 28,
+    "priceType": "lifetime",
+    "category": "Music"
+  },
+  {
+    "id": 28,
+    "image": "/69362b026219ac3eb8b4e77e8bbe4e18c4464b44.jpg",
+    "lessons": 13,
+    "duration": "1 hour 55 mins",
+    "comments": 42,
+    "title": "Digital Painting & Sketching",
+    "rating": 4.6,
+    "author": "purepearl studio",
+    "level": "Beginner",
+    "studentsCount": "31+",
+    "price": 23,
+    "priceType": "lifetime",
+    "category": "Drawing & Painting"
+  },
+  {
+    "id": 29,
+    "image": "/a89789455304dbf5cadc8e011bc26c97145aa56c.jpg",
+    "lessons": 17,
+    "duration": "2 hours 35 mins",
+    "comments": 57,
+    "title": "2D Animation with After Effects",
+    "rating": 4.8,
+    "author": "purepearl studio",
+    "level": "Intermediate",
+    "studentsCount": "48+",
+    "price": 36,
+    "priceType": "lifetime",
+    "category": "Animation"
+  },
+  {
+    "id": 30,
+    "image": "/c88264191d691ba3300ad4f82a942429bb912fa5.jpg",
+    "lessons": 15,
+    "duration": "2 hours 25 mins",
+    "comments": 49,
+    "title": "Cinematic Lighting & Filming",
+    "rating": 4.7,
+    "author": "purepearl studio",
+    "level": "Beginner",
+    "studentsCount": "27+",
+    "price": 31,
+    "priceType": "lifetime",
+    "category": "Film & Video"
   }
 ]

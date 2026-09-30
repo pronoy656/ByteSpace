@@ -15,6 +15,7 @@ export interface Course {
   studentsCount: string;
   price: number;
   priceType: string;
+  category?: string;
 }
 
 interface CourseCardProps {
@@ -26,8 +27,7 @@ import Link from 'next/link';
 export function CourseCard({ course }: CourseCardProps) {
   return (
     <Link href={`/courses/${course.id}`} className="border border-[#E2E8F0] rounded-[24px] overflow-hidden hover:shadow-lg transition-shadow bg-white flex flex-col p-4">
-      
-      {/* Thumbnail */}
+
       <div className="relative rounded-[12px] overflow-hidden mb-4 aspect-[4/2.6]">
         <Image
           src={course.image}
@@ -43,7 +43,6 @@ export function CourseCard({ course }: CourseCardProps) {
         </div>
       </div>
 
-      {/* Info */}
       <div className="flex-1 flex flex-col px-1">
         <div className="flex justify-between items-start mb-1">
           <h3 className="font-semibold text-[20px] text-[#0F172A] leading-tight line-clamp-1">{course.title}</h3>
@@ -57,7 +56,6 @@ export function CourseCard({ course }: CourseCardProps) {
           <span className="text-[#003BE2]">{course.author}</span>
         </p>
 
-        {/* Level + Students */}
         <div className="flex items-center gap-[12px] mt-auto">
           <div className="flex items-center gap-1.5 text-[12px] font-medium text-[#4B4C53] bg-[#F5F5F6] px-[12px] py-[9px] rounded-[24px]">
             <BarChart className="w-3.5 h-3.5 text-[#4B4C53]" />
@@ -82,7 +80,6 @@ export function CourseCard({ course }: CourseCardProps) {
           </div>
         </div>
 
-        {/* Price */}
         <div className="flex items-baseline gap-1 mt-[16px]">
           <span className="text-[#003BE2] font-semibold text-[20px]">${course.price}</span>
           <span className="text-[12px] text-[#4F4F4F] font-normal">/{course.priceType}</span>
