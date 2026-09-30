@@ -1,5 +1,6 @@
 import React from 'react';
 import { Title } from '@/components/shared/Title';
+import { Subtitle } from '@/components/shared/Subtitle';
 import { Star, BarChart } from 'lucide-react';
 
 export function FeatureSection() {
@@ -36,9 +37,9 @@ export function FeatureSection() {
             <Title as="h2" className="text-[44px] font-bold leading-[1.2] mb-6 text-[#0F172A]">
               Your Path to Professional<br />Growth Starts Here!
             </Title>
-            <p className="text-[#64748B] text-[16px] leading-relaxed mb-10 max-w-[480px]">
+            <Subtitle className="text-[#64748B] text-[16px] leading-relaxed mb-10 max-w-[480px] font-normal">
               Explore our curated selection of courses tailored to enhance your capabilities and accelerate your career journey. Whether you are looking to sharpen specific skills, gain industry expertise, or embark on a new career path entirely, we have the resources you need.
-            </p>
+            </Subtitle>
             <div className="flex gap-12">
               <div>
                 <h3 className="text-[#003BE2] text-[42px] font-bold mb-1 tracking-tight">12K</h3>
@@ -98,9 +99,9 @@ export function FeatureSection() {
             <Title as="h2" className="text-[44px] font-bold leading-[1.2] mb-6 text-[#0F172A]">
               Create & Manage<br />Courses Easily.
             </Title>
-            <p className="text-[#64748B] text-[16px] leading-relaxed mb-8 max-w-[480px]">
+            <Subtitle className="text-[#64748B] text-[16px] leading-relaxed mb-8 max-w-[480px] font-normal">
               <strong className="text-[#0F172A] font-semibold">ByteSpace</strong> supports individuals or entities in the creation, publication, and administration of educational courses.
-            </p>
+            </Subtitle>
             <ul className="space-y-5">
               {[
                 "Share Your Expertise",

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-800 w-full pt-16 pb-8">
+    <footer className="bg-white text-gray-800 w-full pt-16 pb-8 border-t border-[#CED0D3]">
       <div className="container mx-auto px-12 w-full">
 
         <div className="flex flex-col md:flex-row justify-between mb-24 gap-12">
@@ -10,11 +10,14 @@ export default function Footer() {
 
           <div className="flex-1 max-w-[420px]">
             {/* Logo */}
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10  flex items-center justify-center ">
-                <img src="/Vector.png" alt="ByteSpace Logo" className="h-30 w-30 object-contain ml-1" />
-              </div>
-              <span className="text-black font-extrabold text-2xl tracking-tight">ByteSpace</span>
+            <div className="flex items-center gap-2.5 mb-6">
+              <img src="/Vector.png" alt="ByteSpace Logo" className="h-[28px] w-auto block object-contain" />
+              <span
+                className="text-[#242528] text-[24px] font-bold leading-none inline-flex items-center"
+                style={{ fontFamily: '"Clash Display", sans-serif' }}
+              >
+                ByteSpace
+              </span>
             </div>
 
             <p className="text-gray-600 mb-8 text-[15px] font-medium leading-relaxed">
