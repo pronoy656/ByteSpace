@@ -22,30 +22,29 @@ export function TestimonialSection() {
   }, []);
 
   return (
-    <section className="relative w-full pt-[74px] pb-[57px] overflow-hidden bg-white font-sans border-b border-[#E2E8F0]">
+    <section className="relative w-full pt-[74px] pb-[57px] overflow-hidden bg-white font-sans ">
 
-      {/* Right lime gradient — blended downward and toward center */}
+      {/* Right lime gradient — richer visibility, extending gently down behind the 3rd card */}
       <div
         className="absolute top-0 right-0 pointer-events-none"
         style={{
-          width: '55%',
-          height: '90%',
-          background: 'radial-gradient(ellipse at top right, #CBFC01 0%, #CBFC01 10%, rgba(203,252,1,0.4) 35%, transparent 70%)',
-          opacity: 0.45,
+          width: '40%',
+          height: '100%',
+          background: 'radial-gradient(ellipse at top right, #CBFC01 0%, rgba(203,252,1,0.58) 28%, rgba(203,252,1,0.24) 58%, transparent 78%)',
+          opacity: 0.54,
           filter: 'blur(70px)',
-          transform: 'translate(10%, -5%)',
         }}
       />
 
-      {/* Middle lime blend — between title and subtitle columns */}
+      {/* Top lime blend — positioned near subtitle start, spreading its soft canopy leftwards towards the title */}
       <div
-        className="absolute top-[0%] left-[25%] pointer-events-none"
+        className="absolute -top-[8%] left-[34%] pointer-events-none"
         style={{
-          width: '55%',
-          height: '65%',
-          background: 'radial-gradient(ellipse at top center, #CBFC01 0%, rgba(203,252,1,0.6) 25%, rgba(203,252,1,0.2) 55%, transparent 70%)',
-          opacity: 0.65,
-          filter: 'blur(70px)',
+          width: '500px',
+          height: '350px',
+          background: 'radial-gradient(ellipse at 55% 45%, #CBFC01 0%, rgba(203,252,1,0.72) 30%, rgba(203,252,1,0.25) 60%, transparent 80%)',
+          opacity: 0.68,
+          filter: 'blur(60px)',
         }}
       />
 
@@ -83,27 +82,38 @@ export function TestimonialSection() {
           {testimonials.map((t) => (
             <div
               key={t.id}
-              className="bg-white shadow-sm hover:shadow-md transition-shadow"
-              style={{
-                borderRadius: '24px',
-                padding: '24px',
-              }}
+              className="bg-white rounded-[24px] p-[24px] pb-[44px] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start"
             >
-              {/* Avatar */}
+              {/* Avatar: 24px space to name/title */}
               <img
                 src={t.avatar}
                 alt={t.name}
-                style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', marginBottom: '24px' }}
+                className="w-[80px] h-[80px] rounded-full object-cover mb-[24px]"
               />
 
               {/* Name */}
-              <p className="font-bold text-[16px] text-[#0F172A] mb-0.5">{t.name}</p>
+              <p
+                className="font-bold text-[18px] text-[#0F172A] mb-0.5 leading-snug"
+                style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
+              >
+                {t.name}
+              </p>
 
-              {/* Role */}
-              <p className="text-[#003BE2] text-[14px] font-medium" style={{ marginBottom: '24px' }}>{t.role}</p>
+              {/* Role / Designation: 24px space to description */}
+              <p
+                className="text-[#003BE2] text-[14px] font-medium mb-[24px] leading-tight"
+                style={{ fontFamily: 'Satoshi, sans-serif' }}
+              >
+                {t.role}
+              </p>
 
-              {/* Quote */}
-              <p className="text-[#475569] text-[13px] leading-[1.8]">{t.quote}</p>
+              {/* Quote / Description */}
+              <p
+                className="text-[#4F4F4F] text-[18px] font-normal leading-[160%]"
+                style={{ fontFamily: 'Satoshi, sans-serif' }}
+              >
+                {t.quote}
+              </p>
             </div>
           ))}
         </div>
