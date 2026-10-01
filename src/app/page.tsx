@@ -10,11 +10,17 @@ export default function Home() {
   return (
     <div className="font-sans flex flex-col bg-white">
       <HeroSection />
+
       <BrandSection />
+
       <CourseSection />
+
       <CategorySection />
+
       <FeatureSection />
+
       <CtaSection />
+
       <TestimonialSection />
     </div>
   );

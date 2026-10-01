@@ -77,7 +77,7 @@ export function AuthForm({ type, onSubmit }: AuthFormProps) {
         <div className="pt-0 flex justify-end">
           <button
             type="submit"
-            className="bg-[#D4FB20] text-[#242528] px-8 py-3.5 rounded-full hover:bg-[#c2e61c] shadow-sm cursor-pointer text-[18px] font-medium leading-[120%]"
+            className="bg-[#D4FB20] text-[#242528] px-8 py-3.5 rounded-full hover:bg-[#c2e61c] hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-sm cursor-pointer text-[18px] font-medium leading-[120%]"
             style={{ fontFamily: "Satoshi, sans-serif" }}
           >
             {isSignIn ? 'Sign In' : 'Continue'}

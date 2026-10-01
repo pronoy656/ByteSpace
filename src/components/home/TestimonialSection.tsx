@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Title } from '@/components/shared/Title';
 import { Subtitle } from '@/components/shared/Subtitle';
+import { ScrollReveal } from '@/components/shared/ScrollReveal';
 
 interface Testimonial {
   id: number;
@@ -66,57 +67,64 @@ export function TestimonialSection() {
         {/* Top Row: Title + Description */}
         <div className="flex flex-col md:flex-row gap-12 mb-14 items-start">
           <div className="flex-1">
-            <Title as="h2" className="text-[42px] font-bold leading-[1.2] text-[#0F172A]">
-              Discover What Our<br />Community Is Saying
-            </Title>
+            <ScrollReveal variant="fade-up" delayMs={0}>
+              <Title as="h2" className="text-[42px] font-bold leading-[1.2] text-[#0F172A]">
+                Discover What Our<br />Community Is Saying
+              </Title>
+            </ScrollReveal>
           </div>
           <div className="flex-1 pt-2">
-            <Subtitle className="text-[#64748B] text-[16px] leading-[1.8] font-normal">
-              At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly from those who have experienced the transformative journey of learning and creating on our platform. Explore testimonials that reflect the diverse perspectives of enthusiastic learners and accomplished creators.
-            </Subtitle>
+            <ScrollReveal variant="fade-up" delayMs={120}>
+              <Subtitle className="text-[#64748B] text-[16px] leading-[1.8] font-normal">
+                At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly from those who have experienced the transformative journey of learning and creating on our platform. Explore testimonials that reflect the diverse perspectives of enthusiastic learners and accomplished creators.
+              </Subtitle>
+            </ScrollReveal>
           </div>
         </div>
 
-        {/* Testimonial Cards — gap 41px */}
-        <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: '41px' }}>
-          {testimonials.map((t) => (
-            <div
-              key={t.id}
-              className="bg-white rounded-[24px] p-[24px] pb-[44px] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start"
-            >
-              {/* Avatar: 24px space to name/title */}
-              <img
-                src={t.avatar}
-                alt={t.name}
-                className="w-[80px] h-[80px] rounded-full object-cover mb-[24px]"
-              />
-
-              {/* Name */}
-              <p
-                className="font-bold text-[18px] text-[#0F172A] mb-0.5 leading-snug"
-                style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
+        {/* Testimonial Cards — gap 41px with Staggered Reveal */}
+        <ScrollReveal variant="fade-up" delayMs={180}>
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: '41px' }}>
+            {testimonials.map((t, idx) => (
+              <div
+                key={t.id}
+                className="bg-white rounded-[24px] p-[24px] pb-[44px] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-start animate-fade-in-up"
+                style={{ animationDelay: `${idx * 90}ms` }}
               >
-                {t.name}
-              </p>
+                {/* Avatar: 24px space to name/title */}
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="w-[80px] h-[80px] rounded-full object-cover mb-[24px]"
+                />
 
-              {/* Role / Designation: 24px space to description */}
-              <p
-                className="text-[#003BE2] text-[14px] font-medium mb-[24px] leading-tight"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
-                {t.role}
-              </p>
+                {/* Name */}
+                <p
+                  className="font-bold text-[18px] text-[#0F172A] mb-0.5 leading-snug"
+                  style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
+                >
+                  {t.name}
+                </p>
 
-              {/* Quote / Description */}
-              <p
-                className="text-[#4F4F4F] text-[18px] font-normal leading-[160%]"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
-                {t.quote}
-              </p>
-            </div>
-          ))}
-        </div>
+                {/* Role / Designation: 24px space to description */}
+                <p
+                  className="text-[#003BE2] text-[14px] font-medium mb-[24px] leading-tight"
+                  style={{ fontFamily: 'Satoshi, sans-serif' }}
+                >
+                  {t.role}
+                </p>
+
+                {/* Quote / Description */}
+                <p
+                  className="text-[#4F4F4F] text-[18px] font-normal leading-[160%]"
+                  style={{ fontFamily: 'Satoshi, sans-serif' }}
+                >
+                  {t.quote}
+                </p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
