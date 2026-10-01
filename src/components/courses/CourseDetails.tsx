@@ -20,6 +20,7 @@ import Link from 'next/link';
 
 import defaultReviews from '../../../public/data/course-reviews.json';
 import defaultLessonList from '../../../public/data/lesson-list.json';
+import { CourseDetailsSkeleton } from '@/components/shared/SkeletonLoading';
 
 interface LessonModule {
   title: string;
@@ -63,11 +64,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
   };
 
   if (!course) {
-    return (
-      <div className="min-h-screen flex items-center justify-center font-sans text-gray-500 text-lg">
-        Loading...
-      </div>
-    );
+    return <CourseDetailsSkeleton />;
   }
 
   return (

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { BlueGridBackground } from '@/components/shared/BlueGridBackground';
 import { CourseCard, type Course } from '@/components/shared/CourseCard';
+import { CourseGridSkeleton } from '@/components/shared/SkeletonLoading';
 import { Pagination } from '@/components/shared/Pagination';
 import { Filter, BarChart2, Tag, AlignLeft, ChevronDown, ChevronLeft, ChevronRight, Search } from 'lucide-react';
 
@@ -13,17 +14,20 @@ export function CoursesPageContent() {
   const [categories, setCategories] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState('Featured');
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/data/courses.json')
-      .then((res) => res.json())
-      .then((data) => setCourses(data))
-      .catch((err) => console.error('Failed to load courses', err));
-
-    fetch('/data/categories.json')
-      .then((res) => res.json())
-      .then((data) => setCategories(data))
-      .catch((err) => console.error('Failed to load categories', err));
+    setIsLoading(true);
+    Promise.all([
+      fetch('/data/courses.json').then((res) => res.json()),
+      fetch('/data/categories.json').then((res) => res.json())
+    ])
+      .then(([coursesData, categoriesData]) => {
+        setCourses(coursesData);
+        setCategories(categoriesData);
+      })
+      .catch((err) => console.error('Failed to load courses data', err))
+      .finally(() => setIsLoading(false));
   }, []);
 
   const totalPages = Math.ceil(courses.length / COURSES_PER_PAGE);
@@ -82,34 +86,46 @@ export function CoursesPageContent() {
 
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-3 py-5 border-b border-[#F1F5F9]">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => { setActiveCategory(cat); setCurrentPage(1); }}
-              className={`px-5 py-2 rounded-full text-[14px] font-medium transition-colors ${
-                activeCategory === cat
-                  ? 'bg-[#D4FB20] text-black'
-                  : 'bg-[#F5F5F6] text-[#475569] hover:bg-gray-200'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {isLoading ? (
+            Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="h-9 w-24 bg-slate-100 rounded-full animate-pulse" />
+            ))
+          ) : (
+            categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => { setActiveCategory(cat); setCurrentPage(1); }}
+                className={`px-5 py-2 rounded-full text-[14px] font-medium transition-colors ${
+                  activeCategory === cat
+                    ? 'bg-[#D4FB20] text-black'
+                    : 'bg-[#F5F5F6] text-[#475569] hover:bg-gray-200'
+                }`}
+              >
+                {cat}
+              </button>
+            ))
+          )}
         </div>
 
         {/* Course Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] py-10">
-          {paginatedCourses.map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
+          {isLoading ? (
+            <CourseGridSkeleton count={6} />
+          ) : (
+            paginatedCourses.map((course) => (
+              <CourseCard key={course.id} course={course} />
+            ))
+          )}
         </div>
 
         {/* Pagination */}
-        <Pagination 
-          currentPage={currentPage}
-          totalPages={TOTAL_PAGES}
-          onPageChange={handlePageChange}
-        />
+        {!isLoading && (
+          <Pagination 
+            currentPage={currentPage}
+            totalPages={TOTAL_PAGES}
+            onPageChange={handlePageChange}
+          />
+        )}
 
       </div>
     </div>

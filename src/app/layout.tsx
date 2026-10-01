@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@700&display=swap"
         />
       </head>
-      <body className="min-h-full flex flex-col relative">
+      <body className="min-h-full flex flex-col relative bg-white text-[#171717]">
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>

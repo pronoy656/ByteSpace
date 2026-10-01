@@ -3,20 +3,24 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { BlueGridBackground } from '@/components/shared/BlueGridBackground';
 import { CourseCard, type Course } from '@/components/shared/CourseCard';
+import { CourseGridSkeleton } from '@/components/shared/SkeletonLoading';
 import { Filter, BarChart2, Tag, AlignLeft } from 'lucide-react';
 
 export function CreatorProfile() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [isFollowing, setIsFollowing] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch('/data/courses.json')
       .then((res) => res.json())
       .then((data: Course[]) => {
         // First 6 courses by creator as shown in the design image
         setCourses(data.slice(0, 6));
       })
-      .catch((err) => console.error('Failed to load courses', err));
+      .catch((err) => console.error('Failed to load courses', err))
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (
@@ -108,9 +112,13 @@ export function CreatorProfile() {
 
         {/* 6 Course Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-2">
-          {courses.map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
+          {isLoading ? (
+            <CourseGridSkeleton count={6} />
+          ) : (
+            courses.map((course) => (
+              <CourseCard key={course.id} course={course} />
+            ))
+          )}
         </div>
       </div>
     </div>

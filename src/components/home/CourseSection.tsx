@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Title } from "@/components/shared/Title";
 import { Subtitle } from "@/components/shared/Subtitle";
 import { CourseCard, type Course } from "@/components/shared/CourseCard";
+import { CourseGridSkeleton } from "@/components/shared/SkeletonLoading";
 import { ChevronDown } from "lucide-react";
 
 const CATEGORY_ROWS = [
@@ -42,12 +43,15 @@ export function CourseSection() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [activeCategory, setActiveCategory] = useState("Featured");
   const [showMore, setShowMore] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("/data/courses.json")
       .then((res) => res.json())
       .then((data) => setCourses(data))
-      .catch((err) => console.error("Failed to load courses", err));
+      .catch((err) => console.error("Failed to load courses", err))
+      .finally(() => setIsLoading(false));
   }, []);
 
   // Filter courses based on activeCategory
@@ -154,7 +158,11 @@ export function CourseSection() {
       </div>
 
       {/* Course Grid: 6 cards total (3 cards per row across 2 rows) */}
-      {filteredCourses.length > 0 ? (
+      {isLoading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px]">
+          <CourseGridSkeleton count={6} />
+        </div>
+      ) : filteredCourses.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px]">
           {filteredCourses.slice(0, 6).map((course) => (
             <CourseCard key={course.id} course={course} />
