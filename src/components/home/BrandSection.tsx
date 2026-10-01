@@ -32,11 +32,9 @@ export default function BrandSection() {
 
   return (
     <section className="w-full py-[60px] sm:py-[72px] bg-[#F6F8FB] shrink-0 overflow-hidden relative">
-      {/* Edge gradient masks for seamless fade out on the sides */}
       <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-r from-[#F6F8FB] to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-l from-[#F6F8FB] to-transparent z-10 pointer-events-none" />
 
-      {/* Infinite Scrolling Track */}
       <div className="animate-marquee flex items-center gap-12 sm:gap-16">
         {brandList.map((brand, idx) => (
           <div
@@ -57,7 +55,7 @@ export default function BrandSection() {
                   <rect x="-1.5" y="6.5" width="3" height="4.5" rx="0.5" />
                   <rect x="-11" y="-1.5" width="4.5" height="3" rx="0.5" />
                   <rect x="6.5" y="-1.5" width="4.5" height="3" rx="0.5" />
-                  
+
                   <rect x="-1.5" y="-11" width="3" height="4.5" rx="0.5" transform="rotate(45)" />
                   <rect x="-1.5" y="6.5" width="3" height="4.5" rx="0.5" transform="rotate(45)" />
                   <rect x="-11" y="-1.5" width="4.5" height="3" rx="0.5" transform="rotate(45)" />
