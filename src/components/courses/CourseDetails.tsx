@@ -211,7 +211,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
 
             {/* TAB CONTENT: ABOUT */}
             {activeTab === 'About' && (
-              <div className="flex flex-col">
+              <div className="flex flex-col animate-fade-in-up">
                 {/* Description Section */}
                 <section className="mb-10">
                   <h2
@@ -316,7 +316,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
 
             {/* TAB CONTENT: LESSONS */}
             {activeTab === 'Lessons' && (
-              <div className="flex flex-col">
+              <div className="flex flex-col animate-fade-in-up">
                 <section className="mb-8">
                   <h2
                     className="text-[24px] font-semibold text-[#242528] mb-3"
@@ -413,7 +413,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
 
             {/* TAB CONTENT: REVIEWS */}
             {activeTab === 'Reviews' && (
-              <div className="flex flex-col">
+              <div className="flex flex-col animate-fade-in-up">
                 <section className="mb-8">
                   <h2
                     className="text-[24px] font-semibold text-[#242528] mb-3"
