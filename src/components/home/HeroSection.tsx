@@ -138,7 +138,7 @@ export default function HeroSection() {
           {/* Student with laptop */}
           <div className="relative z-10 w-full flex justify-center items-end">
             <Image
-              src="/29a52a24e51266edcd7d57d73392ee5fc4833220.png"
+              src="/boy-student.png"
               alt="Student with laptop"
               width={720}
               height={760}

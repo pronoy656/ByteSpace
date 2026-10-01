@@ -208,9 +208,9 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                       key={tab}
                       type="button"
                       onClick={() => setActiveTab(tab)}
-                      className={`px-6 py-2 rounded-full text-[14px] transition-all cursor-pointer ${isActive
-                        ? 'bg-[#D4FB20] text-black font-semibold shadow-sm'
-                        : 'bg-[#F5F5F6] text-[#64748B] hover:text-black hover:bg-gray-200 font-medium'
+                      className={`px-6 py-2 rounded-full text-[14px] font-medium transition-all cursor-pointer ${isActive
+                        ? 'bg-[#D4FB20] text-black shadow-sm'
+                        : 'bg-[#F5F5F6] text-[#64748B] hover:text-black hover:bg-gray-200'
                         }`}
                     >
                       {tab}
@@ -348,11 +348,11 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                   >
                     Lesson List
                   </h3>
-                  <div className="space-y-4 mb-10">
+                  <div className="space-y-6 mb-10">
                     {lessonList.map((module, idx) => (
                       <div
                         key={idx}
-                        className="flex gap-4 p-4 rounded-[18px] border border-[#CED0D3]/60 hover:border-[#003BE2]/40 transition-colors bg-white shadow-sm"
+                        className="flex gap-4 items-start"
                       >
                         <div className="w-[52px] h-[52px] shrink-0 bg-[#D4FB20] rounded-[14px] flex items-center justify-center">
                           <Monitor className="w-6 h-6 text-black" />
@@ -365,7 +365,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                             {module.title}
                           </h4>
                           <p
-                            className="text-[#4F4F4F] text-[14px] leading-relaxed"
+                            className="text-[#4F4F4F] text-[16px] font-[400] leading-relaxed"
                             style={{ fontFamily: 'Satoshi, sans-serif' }}
                           >
                             {module.desc}
@@ -443,13 +443,13 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                   <div className="border border-[#CED0D3] rounded-[20px] p-6 mb-8 flex flex-col sm:flex-row gap-6 sm:gap-8 items-center bg-white shadow-sm">
                     <div className="w-[120px] h-[120px] bg-[#D4FB20] rounded-[18px] flex flex-col items-center justify-center shrink-0">
                       <span
-                        className="text-[#242528] text-[14px] font-semibold mb-1"
+                        className="text-[#242528] text-[14px] font-[500] mb-1"
                         style={{ fontFamily: 'Satoshi, sans-serif' }}
                       >
                         Ratings
                       </span>
                       <span
-                        className="text-[#242528] text-[40px] font-bold leading-none"
+                        className="text-[#242528] text-[36px] font-[600] leading-none"
                         style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
                       >
                         4.7
@@ -475,8 +475,8 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                             {[1, 2, 3, 4, 5].map((star) => (
                               <Star
                                 key={star}
-                                className={`w-3.5 h-3.5 ${star <= row.stars
-                                  ? 'fill-[#003BE2] text-[#003BE2]'
+                                className={`w-5 h-5 ${star <= row.stars
+                                  ? 'fill-[#4B4C53] text-[#4B4C53]'
                                   : 'fill-[#CBD5E1] text-[#CBD5E1]'
                                   }`}
                               />
@@ -503,15 +503,15 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                     className="flex flex-wrap gap-2 mb-6"
                     style={{ fontFamily: 'Satoshi, sans-serif' }}
                   >
-                    <button className="bg-[#D4FB20] text-black px-4 py-1.5 rounded-full text-[13.5px] font-semibold">
+                    <button className="bg-[#D4FB20] text-black px-4 py-1.5 rounded-full text-[16px] font-[500]">
                       All rating
                     </button>
                     {[5, 4, 3, 2, 1].map((rating) => (
                       <button
                         key={rating}
-                        className="bg-[#F5F5F6] text-[#64748B] px-4 py-1.5 rounded-full text-[13.5px] font-medium flex items-center gap-1 hover:bg-gray-200 hover:text-black transition-colors"
+                        className="bg-[#F5F5F6] text-[#4B4C53] px-4 py-1.5 rounded-full text-[16px] font-[500] flex items-center gap-1.5 hover:bg-gray-200 transition-colors"
                       >
-                        <Star className="w-3.5 h-3.5 fill-current" /> {rating}
+                        <Star className="w-5 h-5 fill-[#4B4C53] text-[#4B4C53]" /> {rating}
                       </button>
                     ))}
                   </div>
@@ -533,13 +533,13 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                             />
                             <div>
                               <h4
-                                className="font-semibold text-[#242528] text-[15px]"
+                                className="font-[500] text-[#242528] text-[18px]"
                                 style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
                               >
                                 {review.name}
                               </h4>
                               <p
-                                className="text-[#64748B] text-[13px]"
+                                className="text-[#64748B] text-[16px] font-[400]"
                                 style={{ fontFamily: 'Satoshi, sans-serif' }}
                               >
                                 {review.role}
@@ -557,7 +557,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                           {[1, 2, 3, 4, 5].map((star) => (
                             <Star
                               key={star}
-                              className="w-3.5 h-3.5 fill-[#003BE2] text-[#003BE2]"
+                              className="w-5 h-5 fill-[#4B4C53] text-[#4B4C53]"
                             />
                           ))}
                         </div>
@@ -597,12 +597,12 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                       { num: '02', title: 'Design Principles for Impacts', time: '21 mins' },
                       { num: '03', title: 'Advanced Techniques in Digital Creation', time: '16 mins' },
                     ].map((lesson, idx) => (
-                      <div key={idx} className="flex items-center justify-between text-[13.5px] gap-2">
+                      <div key={idx} className="flex items-center justify-between text-[16px] gap-2">
                         <div className="flex items-center gap-3">
-                          <span className="text-[#64748B] font-medium">{lesson.num}</span>
-                          <span className="text-[#242528] font-medium leading-snug">{lesson.title}</span>
+                          <span className="text-[#64748B] font-[400] text-[16px]">{lesson.num}</span>
+                          <span className="text-[#242528] font-[500] text-[16px] leading-snug">{lesson.title}</span>
                         </div>
-                        <span className="text-[#003BE2] font-semibold shrink-0 text-[13px]">
+                        <span className="text-[#003BE2] font-[400] shrink-0 text-[16px]">
                           {lesson.time}
                         </span>
                       </div>
@@ -611,7 +611,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
 
                   {/* 99 more videos */}
                   <p
-                    className="text-[#64748B] text-[13px] cursor-pointer hover:text-[#003BE2] font-medium transition-colors"
+                    className="text-[#64748B] text-[16px] cursor-pointer hover:text-[#003BE2] font-[400] transition-colors"
                     style={{ fontFamily: 'Satoshi, sans-serif' }}
                   >
                     99 more videos
@@ -621,7 +621,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                 {/* 3. Promo Text: Line 1 'Ready to Dive In? Enroll Now and Start', Line 2 'Building Your Digital Future!', 24px bottom space to price */}
                 <div className="mb-[24px]">
                   <p
-                    className="text-[#4F4F4F] text-[13.5px] leading-relaxed"
+                    className="text-[#4F4F4F] text-[16px] font-[400] leading-relaxed"
                     style={{ fontFamily: 'Satoshi, sans-serif' }}
                   >
                     <span className="block">Ready to Dive In? Enroll Now and Start</span>
@@ -633,13 +633,13 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                 <div className="mb-[24px]">
                   <div className="flex items-baseline gap-1">
                     <span
-                      className="text-[#003BE2] font-semibold text-[36px] sm:text-[40px] leading-none"
+                      className="text-[#003BE2] font-[600] text-[36px] leading-none"
                       style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
                     >
                       ${course.price || 25}
                     </span>
                     <span
-                      className="text-[#64748B] text-[14px] font-medium"
+                      className="text-[#64748B] text-[16px] font-[400]"
                       style={{ fontFamily: 'Satoshi, sans-serif' }}
                     >
                       /{course.priceType || 'lifetime'}
@@ -651,7 +651,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                 <div className="mb-[24px]">
                   <button
                     type="button"
-                    className="w-full bg-[#D4FB20] text-black font-semibold py-3.5 rounded-full text-[15px] hover:bg-[#c3e81b] transition-all active:scale-[0.98] shadow-sm cursor-pointer"
+                    className="w-full bg-[#D4FB20] text-black font-[500] py-3.5 rounded-full text-[18px] hover:bg-[#c3e81b] transition-all active:scale-[0.98] shadow-sm cursor-pointer"
                     style={{ fontFamily: 'Satoshi, sans-serif' }}
                   >
                     Enroll Now
@@ -660,7 +660,7 @@ export function CourseDetails({ courseId }: { courseId: string }) {
 
                 {/* 6. Course Includes Heading: 24px bottom space to the 4 features */}
                 <h4
-                  className="font-semibold text-[#242528] text-[15px] mb-[24px]"
+                  className="font-semibold text-[#242528] text-[16px] mb-[24px]"
                   style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
                 >
                   This course include
@@ -671,19 +671,19 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                   className="space-y-3 mb-[24px]"
                   style={{ fontFamily: 'Satoshi, sans-serif' }}
                 >
-                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
+                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[16px] font-[400]">
                     <FileText className="w-4 h-4 text-[#003BE2]" />
                     <span>Learning Resources</span>
                   </li>
-                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
+                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[16px] font-[400]">
                     <Monitor className="w-4 h-4 text-[#003BE2]" />
                     <span>Quality Lesson Videos</span>
                   </li>
-                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
+                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[16px] font-[400]">
                     <Award className="w-4 h-4 text-[#003BE2]" />
                     <span>Certificate of Completion</span>
                   </li>
-                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
+                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[16px] font-[400]">
                     <MessageCircle className="w-4 h-4 text-[#003BE2]" />
                     <span>Private Consultation</span>
                   </li>
