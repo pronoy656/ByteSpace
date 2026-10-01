@@ -222,8 +222,8 @@ export function CoursesPageContent() {
       {/* Filter + Category + Cards */}
       <div className="container mx-auto px-6 sm:px-12 w-full pt-[60px]">
 
-        {/* Filter Row with Fade Up */}
-        <ScrollReveal variant="fade-up" delayMs={50}>
+        {/* Filter Row with Fade Up - high z-index to stay above pills and course cards */}
+        <ScrollReveal variant="fade-up" delayMs={50} className="relative z-30">
           <div className="flex flex-wrap items-center justify-between gap-4 py-5 border-b border-[#F1F5F9]">
             <div className="flex flex-wrap items-center gap-3 filter-dropdown-container">
               
@@ -247,7 +247,7 @@ export function CoursesPageContent() {
               </button>
 
               {/* Level Filter Dropdown */}
-              <div className="relative">
+              <div className="relative z-50">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -267,7 +267,7 @@ export function CoursesPageContent() {
                 </button>
 
                 {isLevelDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
                     <div className="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400">
                       Difficulty Level
                     </div>
@@ -292,7 +292,7 @@ export function CoursesPageContent() {
               </div>
 
               {/* Category Dropdown */}
-              <div className="relative">
+              <div className="relative z-50">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -312,7 +312,7 @@ export function CoursesPageContent() {
                 </button>
 
                 {isCategoryDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-60 max-h-72 overflow-y-auto bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="absolute top-full left-0 mt-2 w-64 max-h-72 overflow-y-auto bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
                     <div className="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400">
                       All Categories
                     </div>
@@ -339,7 +339,7 @@ export function CoursesPageContent() {
             </div>
 
             {/* Sort Dropdown */}
-            <div className="relative filter-dropdown-container">
+            <div className="relative z-40 filter-dropdown-container">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
