@@ -9,32 +9,36 @@ export function FeatureSection() {
       {/* Background Gradients */}
       {/* Top Left Green */}
       <div 
-        className="absolute -top-[5%] -left-[10%] w-[40%] h-[40%] bg-[#CBFC01] opacity-20 rounded-full blur-[120px] pointer-events-none" 
+        className="absolute -top-[5%] -left-[10%] w-[40%] h-[40%] bg-[#CBFC01] opacity-25 rounded-full blur-[120px] pointer-events-none" 
       />
-      {/* Middle Blue Gradient (Between Greens) */}
+      {/* Middle Blue Gradient (Between Greens) - visible */}
       <div 
-        className="absolute top-[30%] -left-[5%] w-[25%] h-[25%] bg-[#003BE2] opacity-15 rounded-full blur-[140px] pointer-events-none" 
+        className="absolute top-[30%] -left-[5%] w-[32%] h-[32%] bg-[#003BE2] opacity-30 rounded-full blur-[130px] pointer-events-none" 
       />
-      {/* Bottom Left Green */}
+      {/* Bottom Left Lime - tighter blend area, not too broadly spread */}
       <div 
-        className="absolute top-[60%] -left-[10%] w-[50%] h-[50%] bg-[#CBFC01] opacity-15 rounded-full blur-[140px] pointer-events-none" 
+        className="absolute top-[64%] -left-[6%] w-[34%] h-[34%] bg-[#CBFC01] opacity-35 rounded-full blur-[85px] pointer-events-none" 
       />
       
-      {/* Top Right Blue */}
+      {/* Top Right Blue - distinctly visible in the top right corner */}
       <div 
-        className="absolute top-[5%] -right-[5%] w-[20%] h-[20%] bg-[#003BE2] opacity-10 rounded-full blur-[100px] pointer-events-none" 
+        className="absolute -top-[5%] -right-[6%] w-[32%] h-[32%] bg-[#003BE2] opacity-25 rounded-full blur-[120px] pointer-events-none" 
       />
-      {/* Bottom Right Blue */}
+      {/* Top Middle Blue - subtle light presence towards center */}
       <div 
-        className="absolute bottom-[5%] -right-[10%] w-[24%] h-[24%] bg-[#003BE2] opacity-15 rounded-full blur-[120px] pointer-events-none" 
+        className="absolute -top-[6%] right-[22%] sm:right-[26%] w-[25%] h-[25%] bg-[#003BE2] opacity-10 rounded-full blur-[150px] pointer-events-none" 
+      />
+      {/* Bottom Right Blue - visible */}
+      <div 
+        className="absolute bottom-[5%] -right-[10%] w-[32%] h-[32%] bg-[#003BE2] opacity-30 rounded-full blur-[120px] pointer-events-none" 
       />
 
       <div className="container mx-auto px-12 w-full relative z-10">
         
         {/* Block 1 (Boy) */}
-        <div className="flex flex-col md:flex-row items-center gap-16 mb-40">
+        <div className="flex flex-col md:flex-row items-center gap-16 mb-36 pt-[72px]">
           <div className="flex-1 md:pr-10">
-            <Title as="h2" className="text-[44px] font-bold leading-[1.2] mb-6 text-[#0F172A]">
+            <Title as="h2" className="text-[44px] font-[600] leading-[1.2] mb-6 text-[#0F172A]">
               Your Path to Professional<br />Growth Starts Here!
             </Title>
             <Subtitle className="text-[#64748B] text-[16px] leading-relaxed mb-10 max-w-[480px] font-normal">
@@ -55,17 +59,11 @@ export function FeatureSection() {
               </div>
             </div>
           </div>
-          <div className="flex-1 relative flex justify-center items-center">
-            {/* Main Image */}
-            <img src="/29a52a24e51266edcd7d57d73392ee5fc4833220.png" alt="Professional Growth" className="w-full max-w-[450px] object-contain relative z-20" />
-            
-            {/* Squiggly Asset */}
-            <img src="/Mask Group.png" alt="" className="absolute top-[5%] -right-[5%] w-[120px] z-10 object-contain" />
-            
-            {/* Card 1: Course Info */}
-            <div className="absolute top-[10%] -left-[10%] bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-3 w-[260px] z-30">
+          <div className="flex-1 relative flex justify-center items-center pt-[6px]">
+            {/* Card 1: Course Info - Behind boy image, shifted further right towards boy */}
+            <div className="absolute top-[8%] left-[8%] sm:left-[12%] bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-3 w-[260px] z-10">
               <div className="relative rounded-xl overflow-hidden mb-3 bg-gray-100">
-                <img src="/Image (1).jpg" alt="thumbnail" className="w-full h-[120px] object-cover" />
+                <img src="/4f3bdea5688b1a654db7a29b0bc5dd3563059d11 (1).jpg" alt="thumbnail" className="w-full h-[120px] object-cover" />
                 <div className="absolute bottom-2 left-2 flex gap-1 text-[9px] font-medium">
                    <span className="bg-white/90 px-2 py-1 rounded-full">17 Lessons</span>
                    <span className="bg-white/90 px-2 py-1 rounded-full">2 hours 16 min</span>
@@ -82,21 +80,31 @@ export function FeatureSection() {
               </div>
             </div>
 
-            {/* Card 2: Learning Progress */}
-            <div className="absolute top-[35%] -right-[15%] bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-5 w-[170px] z-30">
+            {/* Main Image (Boy) - enlarged from 450px to 520px */}
+            <img src="/29a52a24e51266edcd7d57d73392ee5fc4833220.png" alt="Professional Growth" className="w-full max-w-[520px] object-contain relative z-20" />
+
+            {/* Card 2: Learning Progress - wider width */}
+            <div className="absolute top-[35%] right-[6%] sm:right-[14%] bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-5 w-[195px] sm:w-[205px] z-25">
               <p className="text-[12px] text-[#475569] font-medium mb-1">Learning Progress</p>
               <h3 className="text-[36px] font-bold text-[#0F172A] mb-2 leading-none tracking-tight">55%</h3>
               <div className="w-full h-1.5 bg-[#F1F5F9] rounded-full overflow-hidden mt-3">
                 <div className="h-full bg-[#CBFC01] w-[55%]"></div>
               </div>
             </div>
+
+            {/* Spin-Ring Asset for Boy - placed over learning progress card (z-35), shifted slightly right */}
+            <img 
+              src="/Spin-Ring.png" 
+              alt="" 
+              className="absolute top-[12%] right-[0%] sm:right-[4%] w-[190px] sm:w-[220px] z-35 object-contain pointer-events-none drop-shadow-md" 
+            />
           </div>
         </div>
 
         {/* Block 2 (Girl) */}
         <div className="flex flex-col md:flex-row-reverse items-center gap-16">
           <div className="flex-1 md:pl-10">
-            <Title as="h2" className="text-[44px] font-bold leading-[1.2] mb-6 text-[#0F172A]">
+            <Title as="h2" className="text-[44px] font-[600] leading-[1.2] mb-6 text-[#0F172A]">
               Create & Manage<br />Courses Easily.
             </Title>
             <Subtitle className="text-[#64748B] text-[16px] leading-relaxed mb-8 max-w-[480px] font-normal">
@@ -121,24 +129,18 @@ export function FeatureSection() {
             </ul>
           </div>
           <div className="flex-1 relative flex justify-center items-center">
-            {/* Main Image */}
-            <img src="/0d6596fb1df66aaf843ee85722f439fada233946.png" alt="Manage Courses" className="w-full max-w-[450px] object-contain relative z-20" />
-            
-            {/* Squiggly Asset */}
-            <img src="/Mask Group (1).png" alt="" className="absolute top-[35%] -right-[5%] w-[120px] z-10 object-contain" />
-            
-            {/* Card 1: Total Revenue */}
-            <div className="absolute top-[15%] -left-[15%] bg-[#003BE2] rounded-2xl shadow-2xl p-4 w-[190px] z-30 text-white">
-              <p className="text-[12px] opacity-90 mb-0.5 font-medium">Total Revenue</p>
-              <p className="text-[10px] opacity-70 mb-2">July 1-28</p>
-              <h3 className="text-[26px] font-bold mb-3 tracking-tight">$120.29</h3>
+            {/* Card 1: Total Revenue - Behind girl image (z-10), shifted further right into girl */}
+            <div className="absolute top-[8%] left-[8%] sm:left-[14%] bg-[#003BE2] rounded-2xl shadow-2xl p-4 w-[220px] sm:w-[240px] z-10 text-white">
+              <p className="text-[13px] opacity-90 mb-0.5 font-medium">Total Revenue</p>
+              <p className="text-[11px] opacity-75 mb-2">July 1-28</p>
+              <h3 className="text-[28px] font-bold mb-3 tracking-tight">$120.29</h3>
               <div className="w-full h-1.5 bg-white/20 rounded-full overflow-hidden mt-1">
                 <div className="h-full bg-[#CBFC01] w-[60%]"></div>
               </div>
             </div>
 
-            {/* Card 2: Year to Date */}
-            <div className="absolute top-[45%] -left-[15%] bg-[#003BE2] rounded-2xl shadow-2xl p-4 w-[150px] z-30 text-white">
+            {/* Card 2: Year to Date - Behind girl image (z-10), tucked under girl, shifted right */}
+            <div className="absolute top-[40%] left-[8%] sm:left-[14%] bg-[#003BE2] rounded-2xl shadow-2xl p-4 w-[160px] z-10 text-white">
               <p className="text-[12px] opacity-90 mb-0.5 font-medium">Year to Date</p>
               <p className="text-[10px] opacity-70 mb-2">2023</p>
               <h3 className="text-[22px] font-bold mb-2 tracking-tight">$1,200.38</h3>
@@ -147,8 +149,18 @@ export function FeatureSection() {
               </div>
             </div>
 
-            {/* Card 3: Happy Students */}
-            <div className="absolute bottom-[5%] -right-[5%] bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-4 w-[240px] z-30">
+            {/* Main Image (Girl) - in front of Total Revenue & Year to Date cards (z-20) */}
+            <img src="/0d6596fb1df66aaf843ee85722f439fada233946.png" alt="Manage Courses" className="w-full max-w-[520px] object-contain relative z-20 pointer-events-none" />
+
+            {/* Spin-Ring2 Asset for Girl - placed OVER the girl image (z-25) */}
+            <img 
+              src="/Spin-Ring2.png" 
+              alt="" 
+              className="absolute top-[20%] right-[4%] sm:right-[8%] w-[190px] sm:w-[220px] z-25 object-contain pointer-events-none drop-shadow-sm" 
+            />
+
+            {/* Card 3: Happy Students - moved further up and left (z-30) */}
+            <div className="absolute bottom-[8%] right-[6%] sm:right-[10%] bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-4 w-[230px] z-30">
               <p className="text-[13px] text-[#475569] font-medium mb-1">Happy Students</p>
               <div className="flex items-center gap-1 mb-2">
                 <span className="font-bold text-[15px] text-[#0F172A]">4.5</span>
