@@ -21,6 +21,7 @@ import Link from 'next/link';
 import defaultReviews from '../../../public/data/course-reviews.json';
 import defaultLessonList from '../../../public/data/lesson-list.json';
 import { CourseDetailsSkeleton } from '@/components/shared/SkeletonLoading';
+import { ScrollReveal } from '@/components/shared/ScrollReveal';
 
 interface LessonModule {
   title: string;
@@ -74,98 +75,106 @@ export function CourseDetails({ courseId }: { courseId: string }) {
           {/* Hero Header Row */}
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8 lg:mb-10">
             <div className="flex-1 min-w-0">
-              <h1
-                className="text-white text-[24px] sm:text-[30px] md:text-[36px] lg:text-[40px] xl:text-[42px] font-semibold leading-[1.2] mb-[8px] tracking-tight whitespace-nowrap overflow-hidden text-ellipsis"
-                style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
-              >
-                {course.title}: A Comprehensive Guide
-              </h1>
-              <p
-                className="text-white/90 text-[15px] sm:text-[17px] mb-[24px] font-normal"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
-                Unlock the Power of Digital Creation with Expert Guidance
-              </p>
+              <ScrollReveal variant="fade-up" delayMs={50}>
+                <h1
+                  className="text-white text-[24px] sm:text-[30px] md:text-[36px] lg:text-[40px] xl:text-[42px] font-semibold leading-[1.2] mb-[8px] tracking-tight whitespace-nowrap overflow-hidden text-ellipsis"
+                  style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
+                >
+                  {course.title}: A Comprehensive Guide
+                </h1>
+                <p
+                  className="text-white/90 text-[15px] sm:text-[17px] mb-[24px] font-normal"
+                  style={{ fontFamily: 'Satoshi, sans-serif' }}
+                >
+                  Unlock the Power of Digital Creation with Expert Guidance
+                </p>
 
-              <div
-                className="text-white text-[15px] mb-[24px]"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
-                <span className="font-normal text-white/90">
-                  by{' '}
-                  <span className="text-[#D4FB20] font-semibold">
-                    {course.author || 'purepearl studio'}
+                <div
+                  className="text-white text-[15px] mb-[24px]"
+                  style={{ fontFamily: 'Satoshi, sans-serif' }}
+                >
+                  <span className="font-normal text-white/90">
+                    by{' '}
+                    <span className="text-[#D4FB20] font-semibold">
+                      {course.author || 'purepearl studio'}
+                    </span>
                   </span>
-                </span>
-              </div>
+                </div>
+              </ScrollReveal>
 
               {/* Badges / Metrics Row */}
-              <div
-                className="flex flex-wrap items-center gap-3"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
-                <div className="flex items-center gap-2 bg-white text-[#242528] px-[24px] py-[8px] rounded-full font-[500] text-[16px] leading-tight shadow-sm">
-                  <BarChart className="w-[24px] h-[24px] text-[#003BE2] shrink-0" />
-                  <span>{course.level || 'Intermediate'}</span>
+              <ScrollReveal variant="fade-up" delayMs={120}>
+                <div
+                  className="flex flex-wrap items-center gap-3"
+                  style={{ fontFamily: 'Satoshi, sans-serif' }}
+                >
+                  <div className="flex items-center gap-2 bg-white text-[#242528] px-[24px] py-[8px] rounded-full font-[500] text-[16px] leading-tight shadow-sm">
+                    <BarChart className="w-[24px] h-[24px] text-[#003BE2] shrink-0" />
+                    <span>{course.level || 'Intermediate'}</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white text-[#242528] px-[24px] py-[8px] rounded-full font-[500] text-[16px] leading-tight shadow-sm">
+                    <Star className="w-[24px] h-[24px] fill-[#003BE2] text-[#003BE2] shrink-0" />
+                    <span>
+                      {course.rating || '4.8'} ({course.comments ? `${course.comments * 3} reviews` : '172 reviews'})
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white text-[#242528] px-[24px] py-[8px] rounded-full font-[500] text-[16px] leading-tight shadow-sm">
+                    <Users className="w-[24px] h-[24px] text-[#003BE2] shrink-0" />
+                    <span>
+                      {course.studentsCount ? `${course.studentsCount} Students` : '199 Students'}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 bg-white text-[#242528] px-[24px] py-[8px] rounded-full font-[500] text-[16px] leading-tight shadow-sm">
-                  <Star className="w-[24px] h-[24px] fill-[#003BE2] text-[#003BE2] shrink-0" />
-                  <span>
-                    {course.rating || '4.8'} ({course.comments ? `${course.comments * 3} reviews` : '172 reviews'})
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 bg-white text-[#242528] px-[24px] py-[8px] rounded-full font-[500] text-[16px] leading-tight shadow-sm">
-                  <Users className="w-[24px] h-[24px] text-[#003BE2] shrink-0" />
-                  <span>
-                    {course.studentsCount ? `${course.studentsCount} Students` : '199 Students'}
-                  </span>
-                </div>
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* Share Button (Top Right) */}
             <div className="shrink-0 pt-1">
-              <button
-                type="button"
-                onClick={handleShare}
-                className="flex items-center gap-2 bg-[#D4FB20] text-black font-semibold px-6 py-2.5 rounded-full hover:bg-[#c3e81b] transition-all active:scale-95 shadow-sm text-[14.5px] cursor-pointer"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
-                <Share2 className="w-4 h-4 stroke-[2.5]" />
-                <span>{copied ? 'Copied!' : 'Share'}</span>
-              </button>
+              <ScrollReveal variant="fade-up" delayMs={80}>
+                <button
+                  type="button"
+                  onClick={handleShare}
+                  className="flex items-center gap-2 bg-[#D4FB20] text-black font-semibold px-6 py-2.5 rounded-full hover:bg-[#c3e81b] transition-all active:scale-95 shadow-sm text-[14.5px] cursor-pointer"
+                  style={{ fontFamily: 'Satoshi, sans-serif' }}
+                >
+                  <Share2 className="w-4 h-4 stroke-[2.5]" />
+                  <span>{copied ? 'Copied!' : 'Share'}</span>
+                </button>
+              </ScrollReveal>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             <div className="lg:col-span-8">
               {/* Video Player Card */}
-              <div
-                onClick={() => setIsVideoOpen(true)}
-                className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-[24px] sm:rounded-[28px] overflow-hidden group cursor-pointer shadow-none"
-              >
-                <Image
-                  src="/course_video_preview.jpg"
-                  alt="Course Video Preview"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                {/* Play Button Overlay - Same to same design */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-[100px] h-[100px] sm:w-[110px] sm:h-[110px] rounded-[24px] bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
-                    {/* Inner White Circle: height and width 60px with enlarged play icon */}
-                    <div className="w-[60px] h-[60px] rounded-full bg-white flex items-center justify-center shadow-sm pl-1">
-                      <svg
-                        className="w-8 h-8 text-black/40 fill-black/40"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+              <ScrollReveal variant="fade-up" delayMs={160}>
+                <div
+                  onClick={() => setIsVideoOpen(true)}
+                  className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-[24px] sm:rounded-[28px] overflow-hidden group cursor-pointer shadow-none"
+                >
+                  <Image
+                    src="/course_video_preview.jpg"
+                    alt="Course Video Preview"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  {/* Play Button Overlay - Same to same design */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-[100px] h-[100px] sm:w-[110px] sm:h-[110px] rounded-[24px] bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
+                      {/* Inner White Circle: height and width 60px with enlarged play icon */}
+                      <div className="w-[60px] h-[60px] rounded-full bg-white flex items-center justify-center shadow-sm pl-1">
+                        <svg
+                          className="w-8 h-8 text-black/40 fill-black/40"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* Placeholder column to align with right sidebar card */}
@@ -187,27 +196,29 @@ export function CourseDetails({ courseId }: { courseId: string }) {
           {/* ==================== LEFT COLUMN (col-span-8) ==================== */}
           <div className="lg:col-span-8 flex flex-col pt-8 sm:pt-10">
             {/* Navigation Tabs (About, Lessons, Reviews) */}
-            <div
-              className="flex items-center gap-3 mb-8"
-              style={{ fontFamily: 'Satoshi, sans-serif' }}
-            >
-              {(['About', 'Lessons', 'Reviews'] as const).map((tab) => {
-                const isActive = activeTab === tab;
-                return (
-                  <button
-                    key={tab}
-                    type="button"
-                    onClick={() => setActiveTab(tab)}
-                    className={`px-6 py-2 rounded-full text-[14px] transition-all cursor-pointer ${isActive
-                      ? 'bg-[#D4FB20] text-black font-semibold shadow-sm'
-                      : 'bg-[#F5F5F6] text-[#64748B] hover:text-black hover:bg-gray-200 font-medium'
-                      }`}
-                  >
-                    {tab}
-                  </button>
-                );
-              })}
-            </div>
+            <ScrollReveal variant="fade-up" delayMs={50}>
+              <div
+                className="flex items-center gap-3 mb-8"
+                style={{ fontFamily: 'Satoshi, sans-serif' }}
+              >
+                {(['About', 'Lessons', 'Reviews'] as const).map((tab) => {
+                  const isActive = activeTab === tab;
+                  return (
+                    <button
+                      key={tab}
+                      type="button"
+                      onClick={() => setActiveTab(tab)}
+                      className={`px-6 py-2 rounded-full text-[14px] transition-all cursor-pointer ${isActive
+                        ? 'bg-[#D4FB20] text-black font-semibold shadow-sm'
+                        : 'bg-[#F5F5F6] text-[#64748B] hover:text-black hover:bg-gray-200 font-medium'
+                        }`}
+                    >
+                      {tab}
+                    </button>
+                  );
+                })}
+              </div>
+            </ScrollReveal>
 
             {/* TAB CONTENT: ABOUT */}
             {activeTab === 'About' && (
@@ -565,167 +576,169 @@ export function CourseDetails({ courseId }: { courseId: string }) {
           </div>
 
           <div className="lg:col-span-4 w-full relative z-40 -mt-0 lg:-mt-[calc(min(56.25vw,520px)+58px)] lg:sticky lg:top-[90px]">
-            <div className="bg-white rounded-[24px] p-[40px] border border-[#CED0D3]">
-              {/* 1. Header: 20px font size, 600 weight, 24px bottom space */}
-              <h3
-                className="text-[20px] font-[600] text-[#242528] mb-[24px] tracking-tight leading-snug"
-                style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
-              >
-                112 Lessons (24 hours)
-              </h3>
-
-              {/* 2. Lessons List Section: 24px bottom space to promo section */}
-              <div className="mb-[24px]">
-                <div
-                  className="space-y-3.5 mb-3"
-                  style={{ fontFamily: 'Satoshi, sans-serif' }}
+            <ScrollReveal variant="fade-up" delayMs={160}>
+              <div className="bg-white rounded-[24px] p-[40px] border border-[#CED0D3]">
+                {/* 1. Header: 20px font size, 600 weight, 24px bottom space */}
+                <h3
+                  className="text-[20px] font-[600] text-[#242528] mb-[24px] tracking-tight leading-snug"
+                  style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
                 >
-                  {[
-                    { num: '01', title: 'Introduction to Digital Assets', time: '12 mins' },
-                    { num: '02', title: 'Design Principles for Impacts', time: '21 mins' },
-                    { num: '03', title: 'Advanced Techniques in Digital Creation', time: '16 mins' },
-                  ].map((lesson, idx) => (
-                    <div key={idx} className="flex items-center justify-between text-[13.5px] gap-2">
-                      <div className="flex items-center gap-3">
-                        <span className="text-[#64748B] font-medium">{lesson.num}</span>
-                        <span className="text-[#242528] font-medium leading-snug">{lesson.title}</span>
+                  112 Lessons (24 hours)
+                </h3>
+
+                {/* 2. Lessons List Section: 24px bottom space to promo section */}
+                <div className="mb-[24px]">
+                  <div
+                    className="space-y-3.5 mb-3"
+                    style={{ fontFamily: 'Satoshi, sans-serif' }}
+                  >
+                    {[
+                      { num: '01', title: 'Introduction to Digital Assets', time: '12 mins' },
+                      { num: '02', title: 'Design Principles for Impacts', time: '21 mins' },
+                      { num: '03', title: 'Advanced Techniques in Digital Creation', time: '16 mins' },
+                    ].map((lesson, idx) => (
+                      <div key={idx} className="flex items-center justify-between text-[13.5px] gap-2">
+                        <div className="flex items-center gap-3">
+                          <span className="text-[#64748B] font-medium">{lesson.num}</span>
+                          <span className="text-[#242528] font-medium leading-snug">{lesson.title}</span>
+                        </div>
+                        <span className="text-[#003BE2] font-semibold shrink-0 text-[13px]">
+                          {lesson.time}
+                        </span>
                       </div>
-                      <span className="text-[#003BE2] font-semibold shrink-0 text-[13px]">
-                        {lesson.time}
-                      </span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+
+                  {/* 99 more videos */}
+                  <p
+                    className="text-[#64748B] text-[13px] cursor-pointer hover:text-[#003BE2] font-medium transition-colors"
+                    style={{ fontFamily: 'Satoshi, sans-serif' }}
+                  >
+                    99 more videos
+                  </p>
                 </div>
 
-                {/* 99 more videos */}
-                <p
-                  className="text-[#64748B] text-[13px] cursor-pointer hover:text-[#003BE2] font-medium transition-colors"
+                {/* 3. Promo Text: Line 1 'Ready to Dive In? Enroll Now and Start', Line 2 'Building Your Digital Future!', 24px bottom space to price */}
+                <div className="mb-[24px]">
+                  <p
+                    className="text-[#4F4F4F] text-[13.5px] leading-relaxed"
+                    style={{ fontFamily: 'Satoshi, sans-serif' }}
+                  >
+                    <span className="block">Ready to Dive In? Enroll Now and Start</span>
+                    <span className="block">Building Your Digital Future!</span>
+                  </p>
+                </div>
+
+                {/* 4. Price Section: 24px bottom space to button */}
+                <div className="mb-[24px]">
+                  <div className="flex items-baseline gap-1">
+                    <span
+                      className="text-[#003BE2] font-semibold text-[36px] sm:text-[40px] leading-none"
+                      style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
+                    >
+                      ${course.price || 25}
+                    </span>
+                    <span
+                      className="text-[#64748B] text-[14px] font-medium"
+                      style={{ fontFamily: 'Satoshi, sans-serif' }}
+                    >
+                      /{course.priceType || 'lifetime'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* 5. Enroll Now Button: 24px bottom space to 'This course include' */}
+                <div className="mb-[24px]">
+                  <button
+                    type="button"
+                    className="w-full bg-[#D4FB20] text-black font-semibold py-3.5 rounded-full text-[15px] hover:bg-[#c3e81b] transition-all active:scale-[0.98] shadow-sm cursor-pointer"
+                    style={{ fontFamily: 'Satoshi, sans-serif' }}
+                  >
+                    Enroll Now
+                  </button>
+                </div>
+
+                {/* 6. Course Includes Heading: 24px bottom space to the 4 features */}
+                <h4
+                  className="font-semibold text-[#242528] text-[15px] mb-[24px]"
+                  style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
+                >
+                  This course include
+                </h4>
+
+                {/* 7. The 4 Features List: 24px bottom space to the border */}
+                <ul
+                  className="space-y-3 mb-[24px]"
                   style={{ fontFamily: 'Satoshi, sans-serif' }}
                 >
-                  99 more videos
-                </p>
-              </div>
+                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
+                    <FileText className="w-4 h-4 text-[#003BE2]" />
+                    <span>Learning Resources</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
+                    <Monitor className="w-4 h-4 text-[#003BE2]" />
+                    <span>Quality Lesson Videos</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
+                    <Award className="w-4 h-4 text-[#003BE2]" />
+                    <span>Certificate of Completion</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
+                    <MessageCircle className="w-4 h-4 text-[#003BE2]" />
+                    <span>Private Consultation</span>
+                  </li>
+                </ul>
 
-              {/* 3. Promo Text: Line 1 'Ready to Dive In? Enroll Now and Start', Line 2 'Building Your Digital Future!', 24px bottom space to price */}
-              <div className="mb-[24px]">
+                {/* 8. Border Divider: 24px bottom space to creator profile section */}
+                <hr className="border-[#CED0D3]/70 mb-[24px]" />
+
+                {/* 9. Creator Profile Header: Avatar + Name/Role, 24px bottom space to promo text */}
+                <div className="flex items-center gap-3 mb-[24px]">
+                  <div className="relative w-[48px] h-[48px] rounded-full overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
+                    <Image
+                      src="/purepearl_avatar.jpg"
+                      alt="PurePearl Studio"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h5
+                      className="font-semibold text-[#242528] text-[15px] leading-tight"
+                      style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
+                    >
+                      PurePearl Studio
+                    </h5>
+                    <p
+                      className="text-[#64748B] text-[12.5px]"
+                      style={{ fontFamily: 'Satoshi, sans-serif' }}
+                    >
+                      Professional Creator
+                    </p>
+                  </div>
+                </div>
+
+                {/* 10. Promo Text in Creator Section: 24px bottom space to button */}
                 <p
-                  className="text-[#4F4F4F] text-[13.5px] leading-relaxed"
+                  className="text-[#4F4F4F] text-[13px] leading-relaxed mb-[24px]"
                   style={{ fontFamily: 'Satoshi, sans-serif' }}
                 >
                   <span className="block">Ready to Dive In? Enroll Now and Start</span>
                   <span className="block">Building Your Digital Future!</span>
                 </p>
-              </div>
 
-              {/* 4. Price Section: 24px bottom space to button */}
-              <div className="mb-[24px]">
-                <div className="flex items-baseline gap-1">
-                  <span
-                    className="text-[#003BE2] font-semibold text-[36px] sm:text-[40px] leading-none"
-                    style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
-                  >
-                    ${course.price || 25}
-                  </span>
-                  <span
-                    className="text-[#64748B] text-[14px] font-medium"
-                    style={{ fontFamily: 'Satoshi, sans-serif' }}
-                  >
-                    /{course.priceType || 'lifetime'}
-                  </span>
-                </div>
-              </div>
-
-              {/* 5. Enroll Now Button: 24px bottom space to 'This course include' */}
-              <div className="mb-[24px]">
-                <button
-                  type="button"
-                  className="w-full bg-[#D4FB20] text-black font-semibold py-3.5 rounded-full text-[15px] hover:bg-[#c3e81b] transition-all active:scale-[0.98] shadow-sm cursor-pointer"
-                  style={{ fontFamily: 'Satoshi, sans-serif' }}
-                >
-                  Enroll Now
-                </button>
-              </div>
-
-              {/* 6. Course Includes Heading: 24px bottom space to the 4 features */}
-              <h4
-                className="font-semibold text-[#242528] text-[15px] mb-[24px]"
-                style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
-              >
-                This course include
-              </h4>
-
-              {/* 7. The 4 Features List: 24px bottom space to the border */}
-              <ul
-                className="space-y-3 mb-[24px]"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
-                <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
-                  <FileText className="w-4 h-4 text-[#003BE2]" />
-                  <span>Learning Resources</span>
-                </li>
-                <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
-                  <Monitor className="w-4 h-4 text-[#003BE2]" />
-                  <span>Quality Lesson Videos</span>
-                </li>
-                <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
-                  <Award className="w-4 h-4 text-[#003BE2]" />
-                  <span>Certificate of Completion</span>
-                </li>
-                <li className="flex items-center gap-3 text-[#4F4F4F] text-[13.5px] font-medium">
-                  <MessageCircle className="w-4 h-4 text-[#003BE2]" />
-                  <span>Private Consultation</span>
-                </li>
-              </ul>
-
-              {/* 8. Border Divider: 24px bottom space to creator profile section */}
-              <hr className="border-[#CED0D3]/70 mb-[24px]" />
-
-              {/* 9. Creator Profile Header: Avatar + Name/Role, 24px bottom space to promo text */}
-              <div className="flex items-center gap-3 mb-[24px]">
-                <div className="relative w-[48px] h-[48px] rounded-full overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
-                  <Image
-                    src="/purepearl_avatar.jpg"
-                    alt="PurePearl Studio"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                {/* 11. See Full Profile Button */}
                 <div>
-                  <h5
-                    className="font-semibold text-[#242528] text-[15px] leading-tight"
-                    style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
-                  >
-                    PurePearl Studio
-                  </h5>
-                  <p
-                    className="text-[#64748B] text-[12.5px]"
+                  <Link
+                    href="/creators"
+                    className="inline-block border border-[#CED0D3] text-[#242528] font-medium px-5 py-2 rounded-full text-[13px] hover:bg-gray-50 transition-colors cursor-pointer"
                     style={{ fontFamily: 'Satoshi, sans-serif' }}
                   >
-                    Professional Creator
-                  </p>
+                    See Full Profile
+                  </Link>
                 </div>
               </div>
-
-              {/* 10. Promo Text in Creator Section: 24px bottom space to button */}
-              <p
-                className="text-[#4F4F4F] text-[13px] leading-relaxed mb-[24px]"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
-                <span className="block">Ready to Dive In? Enroll Now and Start</span>
-                <span className="block">Building Your Digital Future!</span>
-              </p>
-
-              {/* 11. See Full Profile Button */}
-              <div>
-                <Link
-                  href="/creators"
-                  className="inline-block border border-[#CED0D3] text-[#242528] font-medium px-5 py-2 rounded-full text-[13px] hover:bg-gray-50 transition-colors cursor-pointer"
-                  style={{ fontFamily: 'Satoshi, sans-serif' }}
-                >
-                  See Full Profile
-                </Link>
-              </div>
-            </div>
+            </ScrollReveal>
           </div>
 
         </div>

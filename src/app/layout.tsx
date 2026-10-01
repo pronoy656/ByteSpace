@@ -13,10 +13,17 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ByteSpace online course",
-  description: "ByteSpace online course",
+  title: "ByteSpace – Online Learning & Creator Platform",
+  description: "Unlock your potential with ByteSpace. Explore hundreds of expert-led courses across tech, design, business, and creative fields, or create, manage, and monetize your own courses with ease.",
+  keywords: ["online learning", "creator platform", "courses", "tech skills", "design", "ByteSpace"],
   icons: {
     icon: "/Vector.png",
+  },
+  openGraph: {
+    title: "ByteSpace – Online Learning & Creator Platform",
+    description: "Unlock your potential with ByteSpace. Explore hundreds of expert-led courses across tech, design, business, and creative fields, or create, manage, and monetize your own courses.",
+    siteName: "ByteSpace",
+    type: "website",
   },
 };
 
