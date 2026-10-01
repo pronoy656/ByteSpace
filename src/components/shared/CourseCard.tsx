@@ -26,7 +26,7 @@ import Link from 'next/link';
 
 export function CourseCard({ course }: CourseCardProps) {
   return (
-    <Link href={`/courses/${course.id}`} className="border border-[#E2E8F0] rounded-[24px] overflow-hidden hover:shadow-lg transition-shadow bg-white flex flex-col p-4">
+    <Link href={`/courses/${course.id}`} className="border border-[#CED0D3] rounded-[24px] overflow-hidden hover:shadow-lg transition-shadow bg-white flex flex-col p-4">
 
       <div className="relative rounded-[12px] overflow-hidden mb-4 aspect-[4/2.6]">
         <Image
