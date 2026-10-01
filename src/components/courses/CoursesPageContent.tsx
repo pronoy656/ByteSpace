@@ -221,25 +221,28 @@ export function CoursesPageContent() {
           />
         </ScrollReveal>
 
-        {/* Category Pills Slider / Bar */}
+        {/* Category Pills Slider / Bar: Top 10 categories */}
         <ScrollReveal variant="fade-up" delayMs={80}>
           <div className="flex items-center gap-2 overflow-x-auto py-6 no-scrollbar">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => {
-                  setActiveCategory(cat);
-                  setCurrentPage(1);
-                }}
-                className={`px-5 py-2.5 rounded-full text-[14px] font-medium whitespace-nowrap transition-all cursor-pointer ${
-                  activeCategory === cat
-                    ? 'bg-[#D4FB20] text-black font-semibold shadow-sm'
-                    : 'bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0] hover:bg-gray-100 hover:text-[#0F172A]'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {categories.slice(0, 10).map((cat) => {
+              const isActive = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setActiveCategory(cat);
+                    setCurrentPage(1);
+                  }}
+                  className={`px-5 py-2.5 rounded-full text-[16px] font-[500] whitespace-nowrap transition-colors cursor-pointer outline-none focus:outline-none focus:ring-0 select-none border ${
+                    isActive
+                      ? 'bg-[#D4FB20] text-black border-[#D4FB20] shadow-sm'
+                      : 'bg-[#F8FAFC] text-[#475569] border-[#E2E8F0] hover:bg-gray-100 hover:text-[#0F172A]'
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
           </div>
         </ScrollReveal>
 
