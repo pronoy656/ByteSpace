@@ -50,7 +50,7 @@ export function CourseFilterBar({
         {/* Main Filter Icon Button */}
         <button
           onClick={onResetFilters}
-          className="flex items-center gap-2 text-[14px] font-medium text-[#475569] bg-[#F8FAFC] border border-[#E2E8F0] rounded-full px-4 py-2 hover:bg-gray-100 hover:text-[#0F172A] transition-colors cursor-pointer"
+          className="flex items-center gap-2 text-[14px] font-[500] text-[#475569] bg-[#F8FAFC] border border-[#E2E8F0] rounded-full px-4 py-2 hover:bg-gray-100 hover:text-[#0F172A] transition-colors cursor-pointer outline-none focus:outline-none focus:ring-0"
         >
           <Filter className="w-4 h-4 text-[#003BE2]" />
           <span>Filter</span>
@@ -65,9 +65,9 @@ export function CourseFilterBar({
               setIsCategoryDropdownOpen(false);
               setIsSortDropdownOpen(false);
             }}
-            className={`flex items-center gap-2 text-[14px] font-medium rounded-full px-4 py-2 transition-all cursor-pointer border ${
+            className={`flex items-center gap-2 text-[14px] font-[500] rounded-full px-4 py-2 transition-colors cursor-pointer outline-none focus:outline-none focus:ring-0 border ${
               selectedLevel !== 'All Levels'
-                ? 'bg-[#D4FB20] text-black border-[#D4FB20] shadow-sm font-semibold'
+                ? 'bg-[#D4FB20] text-black border-[#D4FB20] shadow-sm'
                 : 'text-[#475569] bg-[#F8FAFC] border-[#E2E8F0] hover:bg-gray-100 hover:text-[#0F172A]'
             }`}
           >
@@ -97,7 +97,7 @@ export function CourseFilterBar({
                   <span
                     className={
                       selectedLevel === lvl
-                        ? 'font-semibold text-black bg-[#D4FB20] px-2 py-0.5 rounded-md'
+                        ? 'font-[500] text-black bg-[#D4FB20] px-2 py-0.5 rounded-md'
                         : 'font-normal'
                     }
                   >
@@ -119,9 +119,9 @@ export function CourseFilterBar({
               setIsLevelDropdownOpen(false);
               setIsSortDropdownOpen(false);
             }}
-            className={`flex items-center gap-2 text-[14px] font-medium rounded-full px-4 py-2 transition-all cursor-pointer border ${
+            className={`flex items-center gap-2 text-[14px] font-[500] rounded-full px-4 py-2 transition-colors cursor-pointer outline-none focus:outline-none focus:ring-0 border ${
               activeCategory !== 'Featured'
-                ? 'bg-[#D4FB20] text-black border-[#D4FB20] shadow-sm font-semibold'
+                ? 'bg-[#D4FB20] text-black border-[#D4FB20] shadow-sm'
                 : 'text-[#475569] bg-[#F8FAFC] border-[#E2E8F0] hover:bg-gray-100 hover:text-[#0F172A]'
             }`}
           >
@@ -174,7 +174,7 @@ export function CourseFilterBar({
             setIsLevelDropdownOpen(false);
             setIsCategoryDropdownOpen(false);
           }}
-          className="flex items-center gap-2 text-[14px] font-medium text-[#475569] hover:text-[#0F172A] bg-[#F8FAFC] border border-[#E2E8F0] rounded-full px-4 py-2 hover:bg-gray-100 transition-colors cursor-pointer"
+          className="flex items-center gap-2 text-[14px] font-[500] text-[#475569] hover:text-[#0F172A] bg-[#F8FAFC] border border-[#E2E8F0] rounded-full px-4 py-2 hover:bg-gray-100 transition-colors cursor-pointer outline-none focus:outline-none focus:ring-0"
         >
           <AlignLeft className="w-4 h-4" />
           <span>{SORT_OPTIONS.find((s) => s.value === sortBy)?.label || 'Most relevant'}</span>
