@@ -22,28 +22,11 @@ export function CoursesPageContent() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Dropdown open states
-  const [isLevelDropdownOpen, setIsLevelDropdownOpen] = useState(false);
-  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
-  const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
 
   // Search States
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
 
-  // Close dropdowns on outside click
-  useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest('.filter-dropdown-container')) {
-        setIsLevelDropdownOpen(false);
-        setIsCategoryDropdownOpen(false);
-        setIsSortDropdownOpen(false);
-      }
-    };
-    window.addEventListener('click', handleOutsideClick);
-    return () => window.removeEventListener('click', handleOutsideClick);
-  }, []);
 
   // Debounce search query (300ms)
   useEffect(() => {
@@ -215,12 +198,6 @@ export function CoursesPageContent() {
               setCurrentPage(1);
             }}
             onResetFilters={handleResetFilters}
-            isLevelDropdownOpen={isLevelDropdownOpen}
-            setIsLevelDropdownOpen={setIsLevelDropdownOpen}
-            isCategoryDropdownOpen={isCategoryDropdownOpen}
-            setIsCategoryDropdownOpen={setIsCategoryDropdownOpen}
-            isSortDropdownOpen={isSortDropdownOpen}
-            setIsSortDropdownOpen={setIsSortDropdownOpen}
           />
         </ScrollReveal>
 
@@ -250,12 +227,12 @@ export function CoursesPageContent() {
 
         {/* Course Cards Grid */}
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pt-4">
             <CourseGridSkeleton count={6} />
           </div>
         ) : paginatedCourses.length > 0 ? (
           <ScrollReveal variant="fade-up" delayMs={100}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] pt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pt-4">
               {paginatedCourses.map((course, idx) => (
                 <div
                   key={course.id}
