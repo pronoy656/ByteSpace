@@ -4,15 +4,16 @@ import { BlueGridBackground } from '@/components/shared/BlueGridBackground';
 import { Course } from '@/components/shared/CourseCard';
 import { CourseDetailsSkeleton } from '@/components/shared/SkeletonLoading';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { Button } from '@/components/shared/Button';
 import { Share2, BarChart, Star, Users } from 'lucide-react';
 import Image from 'next/image';
 
 import defaultReviews from '../../../public/data/course-reviews.json';
 import defaultLessonList from '../../../public/data/lesson-list.json';
 
-import { CourseAboutTab } from './CourseAboutTab';
-import { CourseLessonsTab, type LessonModule } from './CourseLessonsTab';
-import { CourseReviewsTab, type ReviewItem } from './CourseReviewsTab';
+import { CourseAboutTab } from './tabs/CourseAboutTab';
+import { CourseLessonsTab, type LessonModule } from './tabs/CourseLessonsTab';
+import { CourseReviewsTab, type ReviewItem } from './tabs/CourseReviewsTab';
 import { CourseSidebarCard } from './CourseSidebarCard';
 import { CourseVideoModal } from './CourseVideoModal';
 
@@ -108,14 +109,15 @@ export function CourseDetails({ courseId }: { courseId: string }) {
             {/* Share Button (Top Right) */}
             <div className="shrink-0 pt-1">
               <ScrollReveal variant="fade-up" delayMs={80}>
-                <button
-                  type="button"
+                <Button
+                  variant="lime"
+                  size="md"
                   onClick={handleShare}
-                  className="flex items-center gap-2 bg-[#D4FB20] text-black font-semibold px-6 py-2.5 rounded-full hover:bg-[#c3e81b] transition-all active:scale-95 shadow-sm text-[14.5px] cursor-pointer"
+                  className="gap-2"
                 >
                   <Share2 className="w-4 h-4 stroke-[2.5]" />
                   <span>{copied ? 'Copied!' : 'Share'}</span>
-                </button>
+                </Button>
               </ScrollReveal>
             </div>
           </div>
@@ -166,17 +168,16 @@ export function CourseDetails({ courseId }: { courseId: string }) {
                 {(['About', 'Lessons', 'Reviews'] as const).map((tab) => {
                   const isActive = activeTab === tab;
                   return (
-                    <button
+                    <Button
                       key={tab}
-                      type="button"
+                      variant="pill"
+                      size="sm"
+                      isActive={isActive}
                       onClick={() => setActiveTab(tab)}
-                      className={`px-6 py-2 rounded-full text-[14px] font-medium transition-all cursor-pointer ${isActive
-                          ? 'bg-[#D4FB20] text-black shadow-sm'
-                          : 'bg-[#F5F5F6] text-[#64748B] hover:text-black hover:bg-gray-200'
-                        }`}
+                      className="px-6 py-2"
                     >
                       {tab}
-                    </button>
+                    </Button>
                   );
                 })}
               </div>

@@ -5,6 +5,7 @@ import { BlueGridBackground } from '@/components/shared/BlueGridBackground';
 import { CourseCard, type Course } from '@/components/shared/CourseCard';
 import { CourseGridSkeleton } from '@/components/shared/SkeletonLoading';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { Button } from '@/components/shared/Button';
 import { Filter, BarChart2, Tag, AlignLeft } from 'lucide-react';
 
 export function CreatorProfile() {
@@ -77,15 +78,14 @@ export function CreatorProfile() {
                 </div>
               </div>
 
-              <button
+              <Button
+                variant={isFollowing ? 'white' : 'lime'}
+                size="md"
                 onClick={() => setIsFollowing(!isFollowing)}
-                className={`px-8 py-2.5 rounded-full text-[14px] font-bold transition-colors shadow-md cursor-pointer ${isFollowing
-                  ? 'bg-white text-[#0F172A] hover:bg-gray-100'
-                  : 'bg-[#D4FB20] text-black hover:bg-[#c2e61c]'
-                  }`}
+                className="px-8"
               >
                 {isFollowing ? 'Following' : 'Follow'}
-              </button>
+              </Button>
             </div>
           </ScrollReveal>
         </div>
@@ -100,17 +100,23 @@ export function CreatorProfile() {
                 { label: 'Level', icon: BarChart2 },
                 { label: 'Category', icon: Tag },
               ].map(({ label, icon: Icon }) => (
-                <button
+                <Button
                   key={label}
-                  className="flex items-center gap-2 text-[14px] font-medium text-[#475569] bg-[#F8FAFC] border border-[#E2E8F0] rounded-[24px] px-[16px] py-[12px] hover:bg-gray-100 hover:text-[#0F172A] transition-colors cursor-pointer"
+                  variant="pill"
+                  size="pill"
+                  className="gap-2"
                 >
                   <Icon className="w-4 h-4 text-[#475569]" /> {label}
-                </button>
+                </Button>
               ))}
             </div>
-            <button className="flex items-center gap-2 text-[14px] font-medium text-[#475569] bg-[#F8FAFC] border border-[#E2E8F0] rounded-[24px] px-[16px] py-[12px] hover:bg-gray-100 hover:text-[#0F172A] transition-colors cursor-pointer">
+            <Button
+              variant="pill"
+              size="pill"
+              className="gap-2"
+            >
               <AlignLeft className="w-4 h-4 text-[#475569]" /> Most relevant
-            </button>
+            </Button>
           </div>
         </ScrollReveal>
 

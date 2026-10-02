@@ -3,6 +3,7 @@ import { Title } from '@/components/shared/Title';
 import { Subtitle } from '@/components/shared/Subtitle';
 import { BlueGridBackground } from '@/components/shared/BlueGridBackground';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { Button } from '@/components/shared/Button';
 
 export function CtaSection() {
   return (
@@ -37,9 +38,13 @@ export function CtaSection() {
         </ScrollReveal>
 
         <ScrollReveal variant="fade-up" delayMs={240}>
-          <button className="bg-[#CBFC01] text-[#0F172A] font-semibold rounded-full px-12 h-[60px] text-[18px] hover:bg-[#b5e000] transition-colors shadow-2xl inline-flex items-center justify-center cursor-pointer">
+          <Button
+            variant="lime"
+            size="lg"
+            className="px-12 h-[60px] text-[18px] shadow-2xl"
+          >
             Join as Creator
-          </button>
+          </Button>
         </ScrollReveal>
       </div>
     </BlueGridBackground>

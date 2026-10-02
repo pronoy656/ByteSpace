@@ -1,6 +1,7 @@
 import React from 'react';
 import { BookOpen, RotateCcw, ArrowRight } from 'lucide-react';
 import { CourseCard, type Course } from '@/components/shared/CourseCard';
+import { Button } from '@/components/shared/Button';
 
 interface CourseEmptyStateProps {
   debouncedSearch: string;
@@ -51,18 +52,22 @@ export function CourseEmptyState({
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <button
+          <Button
+            variant="lime"
+            size="md"
             onClick={onResetFilters}
-            className="w-full sm:w-auto bg-[#D4FB20] text-black font-semibold text-[15px] px-7 py-3.5 rounded-full hover:bg-[#c3e81b] transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-7 py-3.5 gap-2"
           >
             <RotateCcw className="w-4 h-4" /> Reset Filters
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="blue"
+            size="md"
             onClick={onResetFilters}
-            className="w-full sm:w-auto bg-[#003BE2] text-white font-semibold text-[15px] px-7 py-3.5 rounded-full hover:bg-[#0033c4] transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-7 py-3.5 gap-2"
           >
             Explore Courses <ArrowRight className="w-4 h-4" />
-          </button>
+          </Button>
         </div>
       </div>
 
