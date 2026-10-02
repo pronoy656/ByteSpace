@@ -5,6 +5,7 @@ import { CourseCard, type Course } from '@/components/shared/CourseCard';
 import { CourseGridSkeleton } from '@/components/shared/SkeletonLoading';
 import { Pagination } from '@/components/shared/Pagination';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { Button } from '@/components/shared/Button';
 import { Search, X, ChevronDown } from 'lucide-react';
 
 import { CourseFilterBar } from './CourseFilterBar';
@@ -177,15 +178,17 @@ export function CoursesPageContent() {
                 </button>
               )}
             </div>
-            <button
+            <Button
+              variant="lime"
+              size="md"
               onClick={() => {
                 setDebouncedSearch(searchTerm.trim());
                 setCurrentPage(1);
               }}
-              className="bg-[#D4FB20] text-black font-semibold rounded-full h-[52px] px-6 text-[15px] flex items-center gap-2 hover:bg-[#c2e61c] transition-colors shrink-0 shadow-lg cursor-pointer"
+              className="h-[52px] px-6 text-[15px] gap-2 shrink-0 shadow-lg"
             >
               Courses <ChevronDown className="w-4 h-4" />
-            </button>
+            </Button>
           </div>
         </ScrollReveal>
       </BlueGridBackground>
@@ -227,20 +230,19 @@ export function CoursesPageContent() {
             {categories.slice(0, 10).map((cat) => {
               const isActive = activeCategory === cat;
               return (
-                <button
+                <Button
                   key={cat}
+                  variant="pill"
+                  size="md"
+                  isActive={isActive}
                   onClick={() => {
                     setActiveCategory(cat);
                     setCurrentPage(1);
                   }}
-                  className={`px-5 py-2.5 rounded-full text-[16px] font-[500] whitespace-nowrap transition-colors cursor-pointer outline-none focus:outline-none focus:ring-0 select-none border ${
-                    isActive
-                      ? 'bg-[#D4FB20] text-black border-[#D4FB20] shadow-sm'
-                      : 'bg-[#F8FAFC] text-[#475569] border-[#E2E8F0] hover:bg-gray-100 hover:text-[#0F172A]'
-                  }`}
+                  className="px-5 py-2.5 text-[16px] whitespace-nowrap"
                 >
                   {cat}
-                </button>
+                </Button>
               );
             })}
           </div>

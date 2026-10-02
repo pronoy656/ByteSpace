@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { BlueGridBackground } from '@/components/shared/BlueGridBackground';
 import { Title } from '@/components/shared/Title';
 import { Subtitle } from '@/components/shared/Subtitle';
+import { Button } from '@/components/shared/Button';
 import { Search } from 'lucide-react';
 
 export default function HeroSection() {
@@ -111,9 +112,13 @@ export default function HeroSection() {
               className="flex-1 bg-transparent border-none outline-none text-gray-800 placeholder-gray-400 text-[14px] sm:text-[15px]"
             />
           </div>
-          <button className="bg-[#D4FB20] text-black font-semibold rounded-full px-7 sm:px-9 h-[52px] sm:h-[58px] text-[14px] sm:text-[15px] hover:bg-[#c2e61c] hover:scale-105 active:scale-95 transition-all shadow-md cursor-pointer">
+          <Button
+            variant="lime"
+            size="md"
+            className="px-7 sm:px-9 h-[52px] sm:h-[58px]"
+          >
             Search
-          </button>
+          </Button>
         </div>
       </div>
 

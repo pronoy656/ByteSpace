@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Course } from '@/components/shared/CourseCard';
+import { Button } from '@/components/shared/Button';
 import { FileText, Monitor, Award, MessageCircle } from 'lucide-react';
 
 interface CourseSidebarCardProps {
@@ -73,12 +74,13 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
 
       {/* 5. Enroll Now Button */}
       <div className="mb-[24px]">
-        <button
-          type="button"
-          className="w-full bg-[#D4FB20] text-black font-[500] py-3.5 rounded-full text-[18px] hover:bg-[#c3e81b] transition-all active:scale-[0.98] shadow-sm cursor-pointer"
+        <Button
+          variant="lime"
+          size="lg"
+          className="w-full"
         >
           Enroll Now
-        </button>
+        </Button>
       </div>
 
       {/* 6. Course Includes Heading */}
