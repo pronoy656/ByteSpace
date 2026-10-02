@@ -60,7 +60,6 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
         </p>
       </div>
 
-      {/* 4. Price Section */}
       <div className="mb-[24px]">
         <div className="flex items-baseline gap-1">
           <span className="text-[#003BE2] font-[600] text-[36px] leading-none font-poppins">
@@ -72,7 +71,6 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
         </div>
       </div>
 
-      {/* 5. Enroll Now Button */}
       <div className="mb-[24px]">
         <Button
           variant="lime"
@@ -83,7 +81,6 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
         </Button>
       </div>
 
-      {/* 6. Course Includes Heading */}
       <h4 className="font-semibold text-[#242528] text-[16px] mb-[24px] font-poppins">
         This course include
       </h4>
@@ -101,7 +98,6 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
       {/* 8. Border Divider */}
       <hr className="border-[#CED0D3]/70 mb-[24px]" />
 
-      {/* 9. Creator Profile Header */}
       <div className="flex items-center gap-3 mb-[24px]">
         <div className="relative w-[48px] h-[48px] shrink-0">
           <Image
@@ -127,7 +123,6 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
         <span className="block">Building Your Digital Future!</span>
       </p>
 
-      {/* 11. See Full Profile Button */}
       <div>
         <Link
           href="/creators"
