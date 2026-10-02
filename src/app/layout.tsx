@@ -30,11 +30,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className={`${poppins.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
       </head>
-      <body className="min-h-full flex flex-col relative bg-white text-[#171717]">
+      <body className="min-h-full flex flex-col relative bg-white text-[#171717]" suppressHydrationWarning>
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
