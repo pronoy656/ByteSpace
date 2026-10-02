@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Filter, BarChart2, Tag, AlignLeft, ChevronDown, Check } from 'lucide-react';
 
 interface CourseFilterBarProps {
@@ -10,12 +10,6 @@ interface CourseFilterBarProps {
   sortBy: string;
   setSortBy: (sort: string) => void;
   onResetFilters: () => void;
-  isLevelDropdownOpen: boolean;
-  setIsLevelDropdownOpen: (open: boolean) => void;
-  isCategoryDropdownOpen: boolean;
-  setIsCategoryDropdownOpen: (open: boolean) => void;
-  isSortDropdownOpen: boolean;
-  setIsSortDropdownOpen: (open: boolean) => void;
 }
 
 export const SORT_OPTIONS = [
@@ -37,16 +31,22 @@ export function CourseFilterBar({
   sortBy,
   setSortBy,
   onResetFilters,
-  isLevelDropdownOpen,
-  setIsLevelDropdownOpen,
-  isCategoryDropdownOpen,
-  setIsCategoryDropdownOpen,
-  isSortDropdownOpen,
-  setIsSortDropdownOpen,
 }: CourseFilterBarProps) {
+  const [openDropdown, setOpenDropdown] = useState<'level' | 'category' | 'sort' | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 py-5 border-b border-[#F1F5F9]">
-      <div className="flex flex-wrap items-center gap-3 filter-dropdown-container">
+    <div ref={containerRef} className="flex flex-wrap items-center justify-between gap-4 py-5 border-b border-[#F1F5F9]">
+      <div className="flex flex-wrap items-center gap-3">
         {/* Main Filter Icon Button */}
         <button
           onClick={onResetFilters}
@@ -59,12 +59,7 @@ export function CourseFilterBar({
         {/* Level Filter Dropdown */}
         <div className="relative z-50">
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsLevelDropdownOpen(!isLevelDropdownOpen);
-              setIsCategoryDropdownOpen(false);
-              setIsSortDropdownOpen(false);
-            }}
+            onClick={() => setOpenDropdown((prev) => (prev === 'level' ? null : 'level'))}
             className={`flex items-center gap-2 text-[14px] font-[500] rounded-full px-4 py-2 transition-colors cursor-pointer outline-none focus:outline-none focus:ring-0 border ${
               selectedLevel !== 'All Levels'
                 ? 'bg-[#D4FB20] text-black border-[#D4FB20] shadow-sm'
@@ -75,12 +70,12 @@ export function CourseFilterBar({
             <span>Level{selectedLevel !== 'All Levels' ? `: ${selectedLevel}` : ''}</span>
             <ChevronDown
               className={`w-3.5 h-3.5 transition-transform ${
-                isLevelDropdownOpen ? 'rotate-180' : ''
+                openDropdown === 'level' ? 'rotate-180' : ''
               }`}
             />
           </button>
 
-          {isLevelDropdownOpen && (
+          {openDropdown === 'level' && (
             <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
               <div className="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400">
                 Difficulty Level
@@ -90,7 +85,7 @@ export function CourseFilterBar({
                   key={lvl}
                   onClick={() => {
                     setSelectedLevel(lvl);
-                    setIsLevelDropdownOpen(false);
+                    setOpenDropdown(null);
                   }}
                   className="w-full text-left px-4 py-2 text-[14px] text-[#0F172A] hover:bg-gray-50 flex items-center justify-between cursor-pointer transition-colors"
                 >
@@ -113,12 +108,7 @@ export function CourseFilterBar({
         {/* Category Dropdown */}
         <div className="relative z-50">
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsCategoryDropdownOpen(!isCategoryDropdownOpen);
-              setIsLevelDropdownOpen(false);
-              setIsSortDropdownOpen(false);
-            }}
+            onClick={() => setOpenDropdown((prev) => (prev === 'category' ? null : 'category'))}
             className={`flex items-center gap-2 text-[14px] font-[500] rounded-full px-4 py-2 transition-colors cursor-pointer outline-none focus:outline-none focus:ring-0 border ${
               activeCategory !== 'Featured'
                 ? 'bg-[#D4FB20] text-black border-[#D4FB20] shadow-sm'
@@ -129,12 +119,12 @@ export function CourseFilterBar({
             <span>Category{activeCategory !== 'Featured' ? `: ${activeCategory}` : ''}</span>
             <ChevronDown
               className={`w-3.5 h-3.5 transition-transform ${
-                isCategoryDropdownOpen ? 'rotate-180' : ''
+                openDropdown === 'category' ? 'rotate-180' : ''
               }`}
             />
           </button>
 
-          {isCategoryDropdownOpen && (
+          {openDropdown === 'category' && (
             <div className="absolute top-full left-0 mt-2 w-64 max-h-72 overflow-y-auto bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
               <div className="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400">
                 All Categories
@@ -144,7 +134,7 @@ export function CourseFilterBar({
                   key={cat}
                   onClick={() => {
                     setActiveCategory(cat);
-                    setIsCategoryDropdownOpen(false);
+                    setOpenDropdown(null);
                   }}
                   className="w-full text-left px-4 py-2 text-[14px] text-[#0F172A] hover:bg-gray-50 flex items-center justify-between cursor-pointer transition-colors"
                 >
@@ -166,26 +156,21 @@ export function CourseFilterBar({
       </div>
 
       {/* Sort Dropdown */}
-      <div className="relative z-40 filter-dropdown-container">
+      <div className="relative z-40">
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsSortDropdownOpen(!isSortDropdownOpen);
-            setIsLevelDropdownOpen(false);
-            setIsCategoryDropdownOpen(false);
-          }}
+          onClick={() => setOpenDropdown((prev) => (prev === 'sort' ? null : 'sort'))}
           className="flex items-center gap-2 text-[14px] font-[500] text-[#475569] hover:text-[#0F172A] bg-[#F8FAFC] border border-[#E2E8F0] rounded-full px-4 py-2 hover:bg-gray-100 transition-colors cursor-pointer outline-none focus:outline-none focus:ring-0"
         >
           <AlignLeft className="w-4 h-4" />
           <span>{SORT_OPTIONS.find((s) => s.value === sortBy)?.label || 'Most relevant'}</span>
           <ChevronDown
             className={`w-3.5 h-3.5 transition-transform ${
-              isSortDropdownOpen ? 'rotate-180' : ''
+              openDropdown === 'sort' ? 'rotate-180' : ''
             }`}
           />
         </button>
 
-        {isSortDropdownOpen && (
+        {openDropdown === 'sort' && (
           <div className="absolute top-full right-0 mt-2 w-52 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
             <div className="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400">
               Sort Courses By
@@ -195,7 +180,7 @@ export function CourseFilterBar({
                 key={opt.value}
                 onClick={() => {
                   setSortBy(opt.value);
-                  setIsSortDropdownOpen(false);
+                  setOpenDropdown(null);
                 }}
                 className="w-full text-left px-4 py-2 text-[14px] text-[#0F172A] hover:bg-gray-50 flex items-center justify-between cursor-pointer transition-colors"
               >

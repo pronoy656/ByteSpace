@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/shared/Navbar";
-import Footer from "@/components/shared/Footer";
-
 import { LayoutShell } from "@/components/shared/LayoutShell";
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -34,10 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${poppins.variable} h-full antialiased`}
     >
       <head>
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@700&display=swap"
-        />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
       </head>
       <body className="min-h-full flex flex-col relative bg-white text-[#171717]">
         <LayoutShell>{children}</LayoutShell>

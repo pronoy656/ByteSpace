@@ -118,11 +118,11 @@ export function CourseReviewsTab({ reviews }: CourseReviewsTabProps) {
               <div className="flex justify-between items-start mb-3">
                 <div className="flex items-center gap-3">
                   <Image
-                    src={`https://i.pravatar.cc/150?img=${review.img || 12}`}
+                    src={`/Avater ${(idx % 4) + 1}.png`}
                     alt={review.name}
                     width={44}
                     height={44}
-                    className="rounded-full bg-gray-200"
+                    className="w-11 h-11 rounded-full object-cover border border-gray-100 shadow-xs shrink-0"
                   />
                   <div>
                     <h4 className="font-[500] text-[#242528] text-[18px] font-poppins">

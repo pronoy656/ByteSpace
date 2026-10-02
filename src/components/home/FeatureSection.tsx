@@ -3,6 +3,7 @@ import { Title } from '@/components/shared/Title';
 import { Subtitle } from '@/components/shared/Subtitle';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Star, BarChart } from 'lucide-react';
+import { StudentAvatars } from '@/components/shared/StudentAvatars';
 
 const STATS = [
   { value: '12K', label: 'Students', delay: 100 },
@@ -17,12 +18,6 @@ const CREATOR_POINTS = [
   'Build a Community',
 ];
 
-const STUDENT_AVATARS = [
-  'https://i.pravatar.cc/100?img=1',
-  'https://i.pravatar.cc/100?img=2',
-  'https://i.pravatar.cc/100?img=3',
-  'https://i.pravatar.cc/100?img=4',
-];
 
 export function FeatureSection() {
   return (
@@ -184,11 +179,9 @@ export function FeatureSection() {
                   <span className="text-[11px] text-[#94A3B8]">(240)</span>
                   <Star className="w-3.5 h-3.5 fill-[#CBFC01] text-[#CBFC01] ml-0.5" />
                 </div>
-                <div className="flex -space-x-2 mt-1">
-                  {STUDENT_AVATARS.map((avatar, idx) => (
-                    <img key={idx} src={avatar} alt="student" className="w-8 h-8 rounded-full border-2 border-white object-cover bg-gray-200" />
-                  ))}
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-[#CBFC01] flex items-center justify-center text-[10px] font-bold z-10 text-black">
+                <div className="flex items-center mt-1">
+                  <StudentAvatars count={4} size={32} />
+                  <div className="w-8 h-8 rounded-full border-2 border-white bg-[#CBFC01] flex items-center justify-center text-[10px] font-bold z-10 text-black -ml-2">
                     2K+
                   </div>
                 </div>
