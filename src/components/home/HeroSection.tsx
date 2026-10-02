@@ -4,6 +4,7 @@ import { BlueGridBackground } from '@/components/shared/BlueGridBackground';
 import { Title } from '@/components/shared/Title';
 import { Subtitle } from '@/components/shared/Subtitle';
 import { Button } from '@/components/shared/Button';
+import { StudentAvatars } from '@/components/shared/StudentAvatars';
 import { Search } from 'lucide-react';
 
 export default function HeroSection() {
@@ -157,17 +158,11 @@ export default function HeroSection() {
             className="absolute top-[22%] left-8 sm:left-4 lg:left-0 z-20 hero-fade-in-up"
             style={{ animationDelay: '380ms' }}
           >
-            <div className="bg-white rounded-[16px] p-3 sm:p-4 shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-[#CED0D3]/40 pointer-events-auto transition-transform duration-300 hover:scale-105">
-              <h4
-                className="text-[13px] sm:text-[15px] font-[600] text-[#242528] leading-tight"
-                style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
-              >
+            <div className="bg-white rounded-2xl p-3 sm:p-4 shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-[#CED0D3]/40 pointer-events-auto transition-transform duration-300 hover:scale-105">
+              <h4 className="text-sm sm:text-base font-semibold text-[#242528] leading-tight font-poppins">
                 UI/UX Design
               </h4>
-              <p
-                className="text-[11px] sm:text-[12px] text-[#64748B] mt-0.5"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
+              <p className="text-xs text-[#64748B] mt-0.5">
                 200 Courses &bull; 1000+ Students
               </p>
             </div>
@@ -178,21 +173,15 @@ export default function HeroSection() {
             className="absolute top-[22%] -right-8 sm:-right-16 lg:-right-22 z-20 hero-fade-in-up"
             style={{ animationDelay: '460ms' }}
           >
-            <div className="bg-white rounded-[16px] p-4 sm:p-5 shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-[#CED0D3]/40 pointer-events-auto w-[195px] sm:w-[235px] transition-transform duration-300 hover:scale-105">
-              <p
-                className="text-[14px] font-[500] text-[#64748B] mb-1"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
+            <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-[#CED0D3]/40 pointer-events-auto w-[195px] sm:w-[235px] transition-transform duration-300 hover:scale-105">
+              <p className="text-sm font-medium text-[#64748B] mb-1">
                 Learning Progress
               </p>
-              <p
-                className="text-[48px] font-[600] text-[#242528] leading-[100%] mb-3"
-                style={{ fontFamily: 'var(--font-poppins), sans-serif' }}
-              >
+              <p className="text-5xl font-semibold text-[#242528] leading-none mb-3 font-poppins">
                 55%
               </p>
               <div className="w-full h-2 bg-[#F1F5F9] rounded-full overflow-hidden">
-                <div className="h-full bg-[#D4FB20] rounded-full" style={{ width: '55%' }} />
+                <div className="h-full bg-[#D4FB20] rounded-full w-[55%]" />
               </div>
             </div>
           </div>
@@ -202,28 +191,18 @@ export default function HeroSection() {
             className="absolute bottom-[16%] sm:bottom-[18%] -left-4 sm:-left-12 lg:-left-14 z-20 hero-fade-in-up"
             style={{ animationDelay: '540ms' }}
           >
-            <div className="bg-white rounded-[16px] p-[16px] shadow-[0_14px_35px_rgba(0,0,0,0.15)] border border-[#CED0D3]/40 pointer-events-auto min-w-[210px] sm:min-w-[240px] transition-transform duration-300 hover:scale-105">
-              <h5
-                className="text-[16px] font-[500] text-[#242528] leading-tight"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
+            <div className="bg-white rounded-2xl p-4 shadow-[0_14px_35px_rgba(0,0,0,0.15)] border border-[#CED0D3]/40 pointer-events-auto min-w-[210px] sm:min-w-[240px] transition-transform duration-300 hover:scale-105">
+              <h5 className="text-base font-medium text-[#242528] leading-tight">
                 Happy Students
               </h5>
-              <div
-                className="flex items-center gap-1.5 text-[12px] font-[400] text-[#64748B] mt-1 mb-3"
-                style={{ fontFamily: 'Satoshi, sans-serif' }}
-              >
-                <span className="font-[600] text-[#242528]">4.5</span>
+              <div className="flex items-center gap-1.5 text-xs text-[#64748B] mt-1 mb-3">
+                <span className="font-semibold text-[#242528]">4.5</span>
                 <span>(240)</span>
-                <span className="text-[#003BE2] text-[13px] leading-none">&#9733;</span>
+                <span className="text-[#003BE2] text-sm leading-none">&#9733;</span>
               </div>
-              <div className="flex items-center -space-x-2">
-                <Image src="https://i.pravatar.cc/100?img=33" alt="student" width={32} height={32} className="rounded-full ring-2 ring-white object-cover" />
-                <Image src="https://i.pravatar.cc/100?img=12" alt="student" width={32} height={32} className="rounded-full ring-2 ring-white object-cover" />
-                <Image src="https://i.pravatar.cc/100?img=60" alt="student" width={32} height={32} className="rounded-full ring-2 ring-white object-cover" />
-                <Image src="https://i.pravatar.cc/100?img=47" alt="student" width={32} height={32} className="rounded-full ring-2 ring-white object-cover" />
-                <Image src="https://i.pravatar.cc/100?img=11" alt="student" width={32} height={32} className="rounded-full ring-2 ring-white object-cover" />
-                <div className="w-8 h-8 rounded-full bg-[#D4FB20] ring-2 ring-white flex items-center justify-center text-[11px] font-bold text-black">
+              <div className="flex items-center">
+                <StudentAvatars count={4} size={32} />
+                <div className="w-8 h-8 rounded-full bg-[#D4FB20] ring-2 ring-white flex items-center justify-center text-xs font-bold text-black -ml-2 z-10">
                   2K+
                 </div>
               </div>

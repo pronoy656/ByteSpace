@@ -22,6 +22,13 @@ export function ScrollReveal({
     const node = elementRef.current;
     if (!node) return;
 
+    // Fast-path: If already in viewport on initial load, show immediately
+    const rect = node.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -31,7 +38,6 @@ export function ScrollReveal({
       },
       {
         threshold: 0.05,
-        rootMargin: '0px 0px -40px 0px',
       }
     );
 

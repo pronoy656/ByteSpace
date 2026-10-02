@@ -30,12 +30,12 @@ export function CreatorProfile() {
         <div className="container mx-auto px-6 sm:px-12 w-full">
           <ScrollReveal variant="fade-up" delayMs={60}>
             <div className="flex items-start gap-6 mb-6">
-              <div className="relative w-[100px] h-[100px] sm:w-[110px] sm:h-[110px] rounded-[24px] overflow-hidden border-2 border-white/40 shadow-xl shrink-0 bg-[#E2E8F0]">
+              <div className="relative w-[100px] h-[100px] sm:w-[110px] sm:h-[110px] shrink-0">
                 <Image
-                  src="https://i.pravatar.cc/300?img=12"
+                  src="/Image (8).png"
                   alt="PurePearl Studio"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
               </div>

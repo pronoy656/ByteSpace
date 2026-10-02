@@ -103,12 +103,12 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
 
       {/* 9. Creator Profile Header */}
       <div className="flex items-center gap-3 mb-[24px]">
-        <div className="relative w-[48px] h-[48px] rounded-full overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
+        <div className="relative w-[48px] h-[48px] shrink-0">
           <Image
-            src="/purepearl_avatar.jpg"
+            src="/Image (8).png"
             alt="PurePearl Studio"
             fill
-            className="object-cover"
+            className="object-contain"
           />
         </div>
         <div>

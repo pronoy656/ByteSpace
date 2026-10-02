@@ -8,15 +8,15 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Satoshi', sans-serif;
+  --font-sans: 'Satoshi', system-ui, -apple-system, sans-serif;
   --font-poppins: var(--font-poppins);
-  --font-satoshi: 'Satoshi', sans-serif;
+  --font-satoshi: 'Satoshi', system-ui, -apple-system, sans-serif;
 }
 
 body {
   background-color: #ffffff;
   color: var(--foreground);
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,21 +24,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button, input, textarea, select {
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
 }
 
-/* Fontshare Fonts */
+/* ================= WEB FONTS (FONT-DISPLAY: SWAP) ================= */
 @font-face {
-  font-family: 'Clash Display';
-  src: url('https://cdn.fontshare.com/wf/BFBSY7LX5W2U2EROCLVVTQP4VS7S4PC3/IIUX4FGTMD2LK2VWD3RVTAS4SSMUN7B5/53RZKGODFYDW3QHTIL7IPOWTBCSUEZK7.woff2') format('woff2'),
-       url('https://cdn.fontshare.com/wf/BFBSY7LX5W2U2EROCLVVTQP4VS7S4PC3/IIUX4FGTMD2LK2VWD3RVTAS4SSMUN7B5/53RZKGODFYDW3QHTIL7IPOWTBCSUEZK7.woff') format('woff'),
-       url('https://cdn.fontshare.com/wf/BFBSY7LX5W2U2EROCLVVTQP4VS7S4PC3/IIUX4FGTMD2LK2VWD3RVTAS4SSMUN7B5/53RZKGODFYDW3QHTIL7IPOWTBCSUEZK7.ttf') format('truetype');
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C5CWNEYL2SGG/JNVTFFETDGS2DCSPOINAU56GIBAC6URW/V52WWIXWIFKYT6SL44S2GUGNC7V77NDH.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/FP3274T26L7IGVPQ26ODJ3H7QHG5BSO2/H4O7GHP4C42O772F2PVI3EQ4P6O5LBFG/O74CP25T2CGBF5W5X3M3Q63D7Q2QODT7.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/NPXWCH7FCA7S47EC7EV25QJ56S242K57/QW5G54C5M4Z5S3P6QW42F5L7M7H25T7G/N5YFF5G2V5T2M3X5P4M7X6J2M4X7Q5J3.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
 }
 
-/* ================= SUBTLE PREMIUM ANIMATIONS ================= */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('https://cdn.fontshare.com/wf/BFBSY7LX5W2U2EROCLVVTQP4VS7S4PC3/IIUX4FGTMD2LK2VWD3RVTAS4SSMUN7B5/53RZKGODFYDW3QHTIL7IPOWTBCSUEZK7.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* ================= SUBTLE ANIMATIONS ================= */
 @keyframes float-gentle {
   0%, 100% {
     transform: translateY(0px);
@@ -105,13 +127,13 @@ button, input, textarea, select {
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes hero-fade-up {
   0% {
     opacity: 0;
-    transform: translateY(32px);
+    transform: translateY(24px);
   }
   100% {
     opacity: 1;
@@ -121,16 +143,14 @@ button, input, textarea, select {
 
 .hero-fade-in-up {
   opacity: 0;
-  animation: hero-fade-up 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
-  will-change: opacity, transform;
+  animation: hero-fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* ================= SCROLL REVEAL (EASE-IN / EASE-OUT) ================= */
+/* ================= SCROLL REVEAL ================= */
 .reveal-hidden {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-visible {
@@ -140,9 +160,8 @@ button, input, textarea, select {
 
 .reveal-hidden-scale {
   opacity: 0;
-  transform: scale(0.97) translateY(24px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: scale(0.97) translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-visible-scale {
@@ -164,7 +183,6 @@ button, input, textarea, select {
   display: flex;
   width: max-content;
   animation: marquee 25s linear infinite;
-  will-change: transform;
 }
 
 .animate-marquee:hover {
@@ -179,5 +197,3 @@ button, input, textarea, select {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-
