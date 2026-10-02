@@ -11,9 +11,9 @@ import Image from 'next/image';
 import defaultReviews from '../../../public/data/course-reviews.json';
 import defaultLessonList from '../../../public/data/lesson-list.json';
 
-import { CourseAboutTab } from './CourseAboutTab';
-import { CourseLessonsTab, type LessonModule } from './CourseLessonsTab';
-import { CourseReviewsTab, type ReviewItem } from './CourseReviewsTab';
+import { CourseAboutTab } from './tabs/CourseAboutTab';
+import { CourseLessonsTab, type LessonModule } from './tabs/CourseLessonsTab';
+import { CourseReviewsTab, type ReviewItem } from './tabs/CourseReviewsTab';
 import { CourseSidebarCard } from './CourseSidebarCard';
 import { CourseVideoModal } from './CourseVideoModal';
 
