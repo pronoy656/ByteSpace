@@ -12,7 +12,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       {!isAuthPage && <Navbar />}
-      <main className="flex-1 flex flex-col">{children}</main>
+      <main className="flex-1 flex flex-col min-w-0 w-full max-w-full">{children}</main>
       {!isAuthPage && <Footer />}
     </>
   );

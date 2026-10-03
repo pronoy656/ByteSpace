@@ -40,9 +40,9 @@ export function CourseCard({ course }: CourseCardProps) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-medium text-[#334155]">
-          <span className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full">{course.lessons} Lessons</span>
-          <span className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full">{course.duration}</span>
-          <span className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full">{course.comments} Comments</span>
+          <span className="bg-white/95 shadow-xs px-2.5 py-1 rounded-full">{course.lessons} Lessons</span>
+          <span className="bg-white/95 shadow-xs px-2.5 py-1 rounded-full">{course.duration}</span>
+          <span className="bg-white/95 shadow-xs px-2.5 py-1 rounded-full">{course.comments} Comments</span>
         </div>
       </div>
 

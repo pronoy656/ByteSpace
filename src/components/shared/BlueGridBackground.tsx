@@ -8,7 +8,7 @@ interface Props {
 export function BlueGridBackground({ children, className = '' }: Props) {
   const hasOverflowClass = className.includes('overflow-');
   return (
-    <div className={`bg-[#003BE2] relative ${hasOverflowClass ? '' : 'overflow-hidden'} ${className}`}>
+    <div className={`bg-[#003BE2] w-full max-w-full relative overflow-hidden ${className}`}>
       {/* Grid Pattern */}
       <div
         className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
