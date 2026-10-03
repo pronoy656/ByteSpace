@@ -127,17 +127,17 @@ export function CoursesPageContent() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* ==================== HERO SEARCH SECTION ==================== */}
-      <BlueGridBackground className="w-full pt-[136px] pb-[69px] flex flex-col items-center justify-center text-center overflow-hidden">
+      <BlueGridBackground className="w-full pt-20 pb-10 sm:pt-[136px] sm:pb-[69px] flex flex-col items-center justify-center text-center overflow-hidden">
         <ScrollReveal variant="fade-up" delayMs={60}>
-          <h1 className="text-white text-[44px] font-bold leading-tight mb-[32px] font-poppins">
+          <h1 className="text-white text-2xl sm:text-3xl md:text-[44px] font-bold leading-tight mb-4 sm:mb-[32px] font-poppins px-4">
             Find Your Next Course
           </h1>
         </ScrollReveal>
 
         <ScrollReveal variant="fade-up" delayMs={160} className="w-full max-w-[560px] px-4">
-          <div className="flex items-center gap-3 w-full">
-            <div className="flex flex-1 items-center bg-white rounded-full px-5 h-[52px] shadow-lg gap-3 relative focus-within:ring-2 focus-within:ring-[#D4FB20] transition-all">
-              <Search className="w-5 h-5 text-gray-400 shrink-0" />
+          <div className="flex items-center gap-2 sm:gap-3 w-full">
+            <div className="flex flex-1 items-center bg-white rounded-xl sm:rounded-full px-3.5 sm:px-5 h-11 sm:h-[52px] shadow-lg gap-2 sm:gap-3 relative focus-within:ring-2 focus-within:ring-[#D4FB20] transition-all min-w-0">
+              <Search className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 shrink-0" />
               <input
                 type="text"
                 value={searchTerm}
@@ -148,16 +148,16 @@ export function CoursesPageContent() {
                     setCurrentPage(1);
                   }
                 }}
-                placeholder="Search by course title, author or category..."
-                className="flex-1 bg-transparent outline-none text-[15px] text-gray-700 placeholder-gray-400 pr-2"
+                placeholder="Search courses, creator..."
+                className="flex-1 bg-transparent outline-none text-xs sm:text-[15px] text-gray-700 placeholder-gray-400 min-w-0 pr-1"
               />
               {searchTerm && (
                 <button
                   onClick={handleClearSearch}
-                  className="text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-full hover:bg-gray-100 cursor-pointer"
+                  className="text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-full hover:bg-gray-100 cursor-pointer shrink-0"
                   title="Clear search"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
               )}
             </div>
@@ -168,16 +168,16 @@ export function CoursesPageContent() {
                 setDebouncedSearch(searchTerm.trim());
                 setCurrentPage(1);
               }}
-              className="h-[52px] px-6 text-[15px] gap-2 shrink-0 shadow-lg"
+              className="!rounded-xl sm:!rounded-full h-11 sm:h-[52px] px-3.5 sm:px-6 text-xs sm:text-[15px] gap-1.5 sm:gap-2 shrink-0 shadow-lg"
             >
-              Courses <ChevronDown className="w-4 h-4" />
+              Courses <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </Button>
           </div>
         </ScrollReveal>
       </BlueGridBackground>
 
       {/* ==================== COURSES CATALOG & FILTERS ==================== */}
-      <div className="container mx-auto px-6 sm:px-12 w-full pt-[60px]">
+      <div className="container mx-auto px-4 sm:px-8 md:px-12 w-full pt-6 sm:pt-[60px]">
         {/* Modular Filter Row */}
         <ScrollReveal variant="fade-up" delayMs={50} className="relative z-30">
           <CourseFilterBar
@@ -203,7 +203,7 @@ export function CoursesPageContent() {
 
         {/* Category Pills Slider / Bar: Top 10 categories */}
         <ScrollReveal variant="fade-up" delayMs={80}>
-          <div className="flex items-center gap-2 overflow-x-auto py-6 no-scrollbar">
+          <div className="flex items-center gap-2 overflow-x-auto py-4 sm:py-6 no-scrollbar">
             {categories.slice(0, 10).map((cat) => {
               const isActive = activeCategory === cat;
               return (
@@ -216,7 +216,7 @@ export function CoursesPageContent() {
                     setActiveCategory(cat);
                     setCurrentPage(1);
                   }}
-                  className="px-5 py-2.5 text-[16px] whitespace-nowrap"
+                  className="px-3.5 sm:px-5 py-1.5 sm:py-2.5 text-xs sm:text-[16px] whitespace-nowrap"
                 >
                   {cat}
                 </Button>
@@ -227,23 +227,21 @@ export function CoursesPageContent() {
 
         {/* Course Cards Grid */}
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 pt-4">
             <CourseGridSkeleton count={6} />
           </div>
         ) : paginatedCourses.length > 0 ? (
-          <ScrollReveal variant="fade-up" delayMs={100}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pt-4">
-              {paginatedCourses.map((course, idx) => (
-                <div
-                  key={course.id}
-                  className="animate-fade-in-up"
-                  style={{ animationDelay: `${(idx % 6) * 60}ms` }}
-                >
-                  <CourseCard course={course} />
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 pt-4">
+            {paginatedCourses.map((course, idx) => (
+              <div
+                key={course.id}
+                className={idx < 6 ? "animate-fade-in-up" : ""}
+                style={{ animationDelay: idx < 6 ? `${(idx % 6) * 50}ms` : undefined }}
+              >
+                <CourseCard course={course} />
+              </div>
+            ))}
+          </div>
         ) : (
           <ScrollReveal variant="fade-up" delayMs={100}>
             <CourseEmptyState

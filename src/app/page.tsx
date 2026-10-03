@@ -8,7 +8,7 @@ import { CtaSection } from "@/components/home/CtaSection";
 
 export default function Home() {
   return (
-    <div className="font-sans flex flex-col bg-white">
+    <div className="font-sans flex flex-col bg-white min-w-0 w-full max-w-full">
       <HeroSection />
 
       <BrandSection />

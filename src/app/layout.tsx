@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { LayoutShell } from "@/components/shared/LayoutShell";
@@ -9,6 +9,12 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "ByteSpace – Online Learning & Creator Platform",
@@ -35,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
       </head>
-      <body className="min-h-full flex flex-col relative bg-white text-[#171717]" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col relative bg-white text-[#171717] overflow-x-clip w-full max-w-[100vw]" suppressHydrationWarning>
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
